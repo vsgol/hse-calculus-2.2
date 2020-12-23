@@ -9,6 +9,8 @@ install:
 - popd
 script:
 - python3 ./build.py
+on:
+  branch: main
 deploy:
     provider: pages
     github_token: $GITHUB_TOKEN
@@ -16,5 +18,4 @@ deploy:
     repo: vsgol/hse-calculus-2.2
     target_branch: pdf
     local_dir: pdf
-    on:
-      branch: main
+    
