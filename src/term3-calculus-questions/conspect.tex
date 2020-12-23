@@ -1,0 +1,34 @@
+% Содержит кучу стандартных настроек.
+% Настоятельно рекомендуется для использования
+
+\input{core}
+\usepackage{epigraph}
+\usepackage{import}
+
+%\enablecode % Включает поддержку кода.
+%\lstset {
+%  style=supercpp% uncomment to use c++ everywhere.
+%}
+%\lstset {
+%  texcl=true %Включить, если хотите писать русские комментарии в коде.
+%}
+\enablemath % добавляет новые определения, например: \N, \divby
+
+\begin{document}
+	% \newcommand\CustomTitle{Здесь можно создать кастомные заголовки в шапке}
+	\gdef\CourseName{Билеты по матану} % Обязательно
+	\author{\ldots} % Обязательно
+	% \gdef\ShortCourseName{Алгебра} % Для другого название в шапке, не обязательно
+	% \gdef\LaconicFooter{YES} % Минималистичный футер, только номера страниц.
+	% \gdef\NoTitlePage{YES} % Отключить главную страницу.
+	
+	\makegood
+	
+	% Если конспект очень большой, то осмысленно разбить его на куски.
+	% Можно сохранить отдельную часть в отдельный .tex,
+	% а затем написать \input{part}, просто подставить в данное место part.tex
+	\newcommand\load[1]{\import{parts/#1/}{00_main}}
+	\load{01_lebesgue_integration}
+	\load{02_parameter_integrals}
+	\load{03_complex_analysis}
+\end{document}

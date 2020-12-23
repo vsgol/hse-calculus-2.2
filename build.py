@@ -17,6 +17,7 @@
 import sys, os, os.path, subprocess, distutils.dir_util, shutil
 import hashlib, json, traceback, itertools
 
+from os.path import commonprefix
 from concurrent.futures import ThreadPoolExecutor as Pool
 
 if sys.version_info < (3,4):
