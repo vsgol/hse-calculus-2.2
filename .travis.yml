@@ -1,12 +1,13 @@
 before_install:
     - sudo apt-get -y install texlive texlive-lang-cyrillic texlive-xetex texlive-generic-extra texlive-fonts-extra texlive-science fonts-cmu fonts-lmodern 
-script:
+install:
 - pushd /opt/pyenv
 - git branch --set-upstream-to=origin/master deploy
 - git pull --ff-only
 - git checkout v1.2.20
 - pyenv install -v 3.7.8
 - popd
+script:
 - python3 ./build.py
 deploy:
     provider: pages
