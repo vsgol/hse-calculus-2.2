@@ -1,1 +1,79 @@
-\Subsection{Билет 53: NAME}
+\Subsection{Билет 53: Интегральный аналог теоремы Абеля. Дифференцирование несобственного интеграла по параметру. Вычисление интеграла $\int\limits_{0}^{+\infty} \dfrac{\sin x}{x}\,dx$}
+
+\begin{theorem}[аналог теоремы Абеля для рядов]\thmslashn
+	
+	$f \in C([a, +\infty))$ и $ \int\limits_{a}^{+\infty} f(x, t)\,dx $ сх-ся
+	
+	Тогда $F(t) :=  \int\limits_{a}^{+\infty} e^{-tx}f(x, t)\,dx $ непрерывна на $[0, +\infty]$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Нужно д-ть, что $\int$ равномерно сх-ся 
+	
+	Она следует из признака Абеля $g(x, t) = e^{-tx}$ монотонна по $x$ и равномерно ограниченна 
+
+\end{proof}
+
+\begin{example} \thmslashn
+	
+	$F(t) :=  \int\limits_{0}^{+\infty} e^{-tx} \dfrac{\sin x}{x}\,dx$ непрерывна на $[0, +\infty)$
+	
+	$f(x) = \dfrac{\sin x}{x} \qquad \int\limits_{0}^{+\infty} \dfrac{\sin x}{x}\,dx$ -- сходится
+		
+\end{example}
+
+\begin{theorem}\thmslashn
+	
+	$f \in C([a, +\infty) \times [c, d])$, $f_t' \in C([a, +\infty) \times [c, d])$
+	\begin{enumerate}
+		\item 
+		$\Phi(t) := \int\limits_{a}^{+\infty} f_t'(x, t)\,dx$ равномерно сходится
+		\item 
+		$F(t) := \int\limits_{a}^{+\infty} f(x, t)\,dx$ сходится при $t = t_0 \in [c, d]$
+	\end{enumerate}
+	 	
+	Тогда $F(t)$ равномерно сх-ся, $F \in C^1[c, d],\; F' = \Phi$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$F_b(t) := \int\limits_{a}^{b} f(x, t)\,dx$ дифференцируема, тк $f(x, t)$ дифференцируема по $t$ и у нас конечный отрезок
+	
+	$F_b'(t) = \int\limits_{a}^{b} f_t'(x, t)\,dx \toto{b\to +\infty} \Phi(t)$
+	
+	$F_b(t_0) \to F(t_0)$
+	
+	$F_b(t) = F_b(t_0) + \int\limits_{t_0}^{t} F_b'(u)\,du \toto{} F(t_0) + \int\limits_{t_0}^{t} \Phi(u)\,du$, тк $F_b'(u) \toto{} \Phi(u) \Rightarrow$ и интеграл тоже равномерно сходится.
+	
+	Т.к. при стремлении $b \to \infty$ мы что-то получили, то это $F(t)$
+	
+	$F(t) = F(t_0) + \int\limits_{t_0}^{t} \Phi(u)\,du \Rightarrow F$ дифф. и $F' = \Phi$ 
+	
+\end{proof}
+
+\begin{example} \thmslashn
+	
+	$F(t) :=  \int\limits_{0}^{+\infty} e^{-tx} \dfrac{\sin x}{x}\,dx \in C[0, +\infty)$
+	
+	$\Phi(t) = \int\limits_{0}^{+\infty} e^{-tx} \sin x\,dx$ равномерно сх-ся при $t \geqslant c > 0$
+	
+	$\Rightarrow F'(t) = \Phi(t)$ при $t > 0$, но $\Phi(t) = -\dfrac{1}{1+t^2}$ (дважды по частям)
+	
+	$\Rightarrow F(t) = \int \Phi(t) \,dt + C = C - \int \dfrac{dt}{1 + t^2} = C - \arctg t$ при $t > 0$
+	
+	Но $F(t)$ и $C - \arctg t$ при $t \geqslant 0$
+	
+	$\lim\limits_{t \to + \infty} \int\limits_{0}^{+\infty} e ^{-tx}\dfrac{\sin x}{x}\,dx = 0$
+	
+	Чтобы внести предел в интеграл нам нужна суммируемая мажоранта
+	
+	$\abs{e ^{-tx}\dfrac{\sin x}{x}} \leqslant e^{-tx} \leqslant e^{-x}$
+	
+	$\Rightarrow 0 = \lim\limits_{t \to + \infty} F(t) = C-\pi/2 \Rightarrow C = \pi/2$ и $F(t) = \dfrac{\pi}{2} - \arctg t$
+	
+	В частности $\int\limits_{0}^{+\infty} \dfrac{\sin x}{x}\,dx = \dfrac{\pi}{2}$
+	
+\end{example}

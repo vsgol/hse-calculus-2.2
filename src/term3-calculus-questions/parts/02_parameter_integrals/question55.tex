@@ -1,1 +1,51 @@
-\Subsection{Билет 55: NAME}
+\Subsection{Билет 55: $B$-функция Эйлера. Свойства. Связь с $\Gamma$-функцией.}
+
+\begin{definition}[$B$-функции]\thmslashn
+	
+	$B(p, q) := \int\limits_{0}^{1} x^{p-1}(1-x)^{q-1}\,dx \;\; p, q > 0$
+	
+\end{definition}
+
+\begin{properties}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$B(p, q) = B(q, p)$
+		\item 
+		$B(p, q) = \int\limits_{0}^{\infty}\frac{t^{p-1}}{(1+t)^{p+q}}\,dt$
+	\end{enumerate}
+	
+\end{properties}
+
+\begin{proof}\thmslashn
+
+	\begin{enumerate}
+		\item 
+		$B(p, q) = \int\limits_{0}^{1} x^{p-1}(1-x)^{q-1}\,dx = \int\limits_{1}^{0} (1-y)^{p-1}y^{q-1}\,dy = B(q, p)$
+		
+		Замена $y = 1-x$
+		
+		\item 
+		$B(p, q) = \int\limits_{0}^{1} x^{p-1}(1-x)^{q-1}\,dx =\int\limits_{0}^{+\infty} \left(\frac{t}{1+t}\right)^{p-1}\left(\frac{1}{1+t}\right)^{q-1}\frac{dt}{((1+t)^2} = \int\limits_{0}^{\infty} \frac{t^{p-1}}{(1+t)^{p+q}}\,dt$
+		
+		Сделали замену $x = \dfrac{t}{t+1} = 1- \dfrac{1}{1+t} \Rightarrow dx = \dfrac{dt}{(1+t)^2}$
+	\end{enumerate}
+
+\end{proof}
+
+\begin{theorem}
+	$B(p, q) = \dfrac{\Gamma(p) \Gamma(q)}{\Gamma(p+1)}$
+\end{theorem}
+
+
+\begin{proof}\thmslashn
+	
+	$\Gamma(p)\Gamma(q) = \int\limits_{0}^{+\infty} x^{p-1} e^{-x} \int\limits_{0}^{+\infty} y^{p-1} e^{-y} \,dy\,dx \underset{y = u-x}= \int\limits_{0}^{+\infty} x^{p-1} e^{-x} \int\limits_{x}^{+\infty} (u-x)^{p-1} e^{-u+x} \,du\,dx = $
+	
+	
+	$=\int\limits_{0}^{+\infty} \int\limits_{x}^{+\infty} x^{p-1}(u-x)^{q-1} e^{-u} \,du\,dx = \int\limits_{0}^{+\infty} \int\limits_{0}^{u} x^{p-1}(u-x)^{q-1} e^{-u} \,dx\,du \underset{x = uv}=$
+	
+
+	$=\int\limits_{0}^{+\infty} \int\limits_{0}^{1} u^{p-1}v^{p-1}u^{q-1} (1-v)^{q-1} e^{-u} u \,dv\,du = \int\limits_{0}^{+\infty} u^{p+q-1} e^{-u} \int\limits_{0}^{1} v^{p-1}(1-v)^{q-1} \,dv\,du = \Gamma(p+q)\cdot B(p, q)$
+	
+\end{proof}

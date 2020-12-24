@@ -1,1 +1,34 @@
-\Subsection{Билет 56: NAME}
+\Subsection{Билет 56: Формулы удвоения и дополнения для Γ-функции.}
+
+\begin{consequence}[1. Формула дополнения]\thmslashn
+	
+	$\Gamma(p)\Gamma(1-p) = \dfrac{\pi}{\sin \pi p}$ при $p \in (0, 1)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$\Gamma(p)\Gamma(1-p) = B(p, 1-p)\Gamma(1) = \int\limits_{0}^{+\infty} \frac{t^{p-1}}{1+t} \,dt = \frac{\pi}{\sin \pi p}$
+	
+	Последний переход можно и самим сделать, но это трудно, так что это факт.
+	
+\end{proof}
+
+
+\begin{consequence}[2. Формула удвоения]\thmslashn
+	
+	$\Gamma(p)\Gamma\left(p+\frac{1}{2}\right) = \dfrac{\sqrt{\pi}}{2^{2p-1}}\cdot \Gamma(2p)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$B(p, p) = \int\limits_{0}^{1} x^{p-1}(1-x)^{p-1}\,dx = 2 \int\limits_{0}^{1/2} (x-x^2)^{p-1}\,dx \underset{x = \frac{1}{2} - t} = 2 \int\limits_{0}^{1/2} \left(\frac{1}{4} - t^2 \right)^{p-1}\,dt \underset{t = \frac{\sqrt{u}}{2}}= 2 \int\limits_{0}^{1} \frac{1}{4\sqrt{u}}\left(\frac{1}{4} - \frac{u}{4} \right)^{p-1} \,du =$
+	
+	$= \frac{1}{2^{2p-1}} \int\limits_{0}^1 (1-u)^{p-1} u^{\frac{1}{2}-1}\,du = B\left(\frac{1}{2} \right) \cdot \frac{1}{2^{2p-1}}$
+	
+	$\frac{\Gamma(p)\Gamma(p)}{\Gamma(2p)} = B(p, p) = B\left(\frac{1}{2} \right) \cdot \frac{1}{2^{2p-1}} = \frac{\Gamma\left(\frac{1}{2} \right)\Gamma(p)}{\Gamma\left(p+\frac{1}{2} \right)} \cdot \frac{1}{2^{2p-1}}$
+	
+	$\Gamma(p)\Gamma\left(p+\frac{1}{2} \right) = \Gamma\left(2p\right)\Gamma\left(\frac{1}{2} \right)\cdot \frac{1}{2^{2p-1}}$
+	
+\end{proof}

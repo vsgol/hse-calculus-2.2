@@ -1,1 +1,53 @@
-\Subsection{Билет 57: NAME}
+\Subsection{Билет 57: Асимптотика $\Gamma(t+a)$. Формула Эйлера–Гаусса.}
+
+\begin{theorem}
+	$\Gamma(t+a) \sim t^a \Gamma(t)$ при $t\to +\infty$
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\frac{\Gamma(t+1)\Gamma(a)}{\Gamma(t+1+a)} = B(t+1, a) = \int\limits_{0}^{1} x^{a-1}(1-x)^{t}\,dx \underset{x = \frac{u}{t}}= \int\limits_{0}^{t} \frac{u^{a-1}}{t^{a-1}\cdot t} \left(1-\frac{u}{t}\right)^{t}\,du = \frac{1}{t^a}\int\limits_{0}^{t} u^{a-1} \left(1-\frac{u}{t}\right)^{t}\,du$
+	
+	
+	$\int\limits_{0}^{t} u^{a-1} \left(1-\frac{u}{t}\right)^{t}\,du = \int\limits_{0}^{+\infty} \mathbf{1}_{[0, t]}(u)u^{a-1}  \left(1-\frac{u}{t}\right)^{t}\,dt \underset{t \to +\infty}\to \int\limits_{0}^{+\infty} u^{a-1}e^{-u}\,du = \Gamma(a)$
+	
+	Осталось понять, почему мы можем перейти к пределу. В качестве суммируемой мажоранты возьмем $g(u) = u^{a-1}e^{-u}$
+	
+	$\dfrac{\Gamma(t+1)\Gamma(a)}{\Gamma(t+1+a)} \sim \dfrac{\Gamma(a)}{t^a} \Rightarrow \Gamma(t+a) \sim t^a \Gamma(t)$ при $t\to +\infty$
+	
+\end{proof}
+
+\begin{theorem}[Формула Эйлера-Гаусса]\thmslashn
+	
+	$\Gamma(p) = \lim\limits_{n \to \infty} n^p \dfrac{n!}{p(p+1)(p+2)\ldots(p+n)}$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$ n^p \dfrac{n!}{p(p+1)(p+2)\ldots(p+n)} = \dfrac{n}{n+p}\cdot \dfrac{\Gamma(p) \Gamma(n)}{\Gamma(n+p)} \cdot n^p \sim \Gamma(p)\cdot \dfrac{\Gamma(n)n^p}{\Gamma(n+p)} \sim \Gamma(p)$
+	
+	
+\end{proof}
+
+
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		При $p = \frac{1}{2}$ получается ф-ла Валлиса
+		
+		\item
+		$p(p+1)(p+2) \ldots (p+n) \sim \dfrac{n^p}{\Gamma(p)}\cdot n!$
+		
+	\end{enumerate}
+	
+\end{consequence}
+
+
+\begin{example}
+	$1\cdot 4 \cdot 7 \cdot \ldots \cdot (3n+1) = 3^n \cdot \underbrace{ \frac{1}{3}\cdot \left(\frac{1}{3} + 1 \right) \left(\frac{1}{3} + 2 \right) \ldots \left(\frac{1}{3} + n \right)}_{\sim \dfrac{n^{1/3}n!}{\Gamma(1/3)}} \sim \dfrac{n! n^{1/3}}{\Gamma(1/3)}3^{n+1}$
+	%Тут что-то вообще странное со шрифтом, тк размер слишком большой
+\end{example}
+

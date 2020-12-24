@@ -1,1 +1,39 @@
-\Subsection{Билет 58: NAME}
+\Subsection{Билет 58: Примеры сведения интегралов к $\Gamma$-функции. Объем многомерного шара.}
+
+\begin{example}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$\int\limits_{0}^{+\infty} e^{-t^p} \,dt = \Gamma \left(1 + \frac{1}{p} \right)\quad p > 0$
+		
+		$t^p = x\;\; x^{1/p} = t \;\; dt = \frac{1}{p}x^{\frac{1}{p}-1}\,dx$
+		
+		$\int\limits_{0}^{+\infty} e^{-t^p} \,dt =\int\limits_{0}^{+\infty} e^{-x}\cdot \frac{1}{p}x^{\frac{1}{p}-1}\,dx = \frac{1}{p} \int\limits_{0}^{+\infty} x^{\frac{1}{p}-1} e^{-x} \,dx = \frac{1}{p} \Gamma\left(\frac{1}{p}\right) = \Gamma\left(\frac{1}{p}+1\right)$
+		
+		\item
+		$\int\limits_{0}^{\pi/2} \sin^{p-1} \phi \cos^{q-1}\phi \,d\phi = \frac{1}{2} B\left(\frac{p}{2}, \frac{q}{2}\right)$
+		
+		$x = \sin^2 \phi \;\; \cos \phi = \sqrt{1-x} \;\; dx = 2\sin \phi \cos\phi \,d\phi$
+		
+		$\int\limits_{0}^{\pi/2} \sin^{p-1} \phi \cos^{q-1}\phi \,d\phi =  \frac{1}{2} \int\limits_{0}^{1} x^{\frac{p-2}{2}} (1-x)^{\frac{q-2}{2}}\,dx = \frac{1}{2} B\left(\frac{p}{2}, \frac{q}{2}\right)$
+		
+		$\int\limits_{0}^{\pi/2} \sin^{p-1} \phi \,d\phi = \int\limits_{0}^{\pi/2} \cos^{p-1} \phi \,d\phi = \frac{1}{2} B\left(\frac{p}{2}, \frac{1}{2}\right) = \frac{1}{2} \cdot \frac{ \Gamma\left(\frac{p}{2}\right) \Gamma\left(\frac{1}{2}\right)} { \Gamma\left(\frac{p+1}{2}\right)} = \frac{\sqrt{\pi} \Gamma\left(\frac{p}{2}\right)} {2 \Gamma\left(\frac{p+1}{2}\right)}$
+		
+		\item
+		Объем $n$-мерного шара
+		
+		$V_n(r)$ -- объем $n$-мерного шара радиуса $r$
+		
+		$V_n(r) = c_n r^n\quad c_n = V_n(1)$
+		
+		$V_n(1) = \int\limits_{-1}^{1} V_{n-1}(\sqrt{1 - z^2}) \,dz = 2c_{n-1}\int\limits_{0}^{1} (\sqrt{1-z^2})^{n-1}\,dz \underset{z = 2\sin \phi }=$
+		
+		$= 2c_{n-1} \int\limits_{0}^{\pi/2} (\cos \phi)^{n-1} \cos \phi\,d\phi = 2c_{n-1} \int\limits_{0}^{\pi/2} (\cos \phi)^{n}\,d\phi = c_{n-1}\frac{\sqrt{\pi} \Gamma\left( \frac{n+1}{2} \right)}{ \Gamma\left(\frac{n}{2}+1 \right)}$
+		
+		$c_n = c_{n-1}\dfrac{\sqrt{\pi} \Gamma\left( \frac{n+1}{2} \right)}{ \Gamma\left(\frac{n}{2}+1 \right)} = c_{n-2} \dfrac{\pi \Gamma\left( \frac{n}{2} \right)}{ \Gamma\left(\frac{n}{2}+1 \right)} = \ldots =c_1 \pi^{\frac{n-1}{2}} \dfrac{\Gamma \left( \frac{1}{2} + 1\right)}{\Gamma \left( \frac{n}{2} + 1\right)} =$
+		
+		$= \pi^{\frac{n-1}{2}} \dfrac{\Gamma \left( \frac{1}{2} \right)}{\Gamma \left( \frac{n}{2} + 1\right)} = \dfrac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1\right)}$
+		
+	\end{enumerate}
+
+\end{example}
