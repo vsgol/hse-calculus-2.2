@@ -16,21 +16,21 @@
 
 \begin{definition}\thmslashn
 	
-	$f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$  равномерно на $X$, если 
+	$f(x, t) \toto{t\to t_0} g(x)$  равномерно на $X$, если 
 	
-	$\forall \varepsilon > 0\,\, \exists \delta > 0 \; \forall t \in T \,\, \rho_T(t, t_0) < \delta \,\, \forall x \in X \Rightarrow \abs{f(x, t) - g(x)} < \varepsilon$
+	$\forall \varepsilon > 0\;\; \exists \delta > 0 \; \forall t \in T \;\; \rho_T(t, t_0) < \delta \;\; \forall x \in X \Rightarrow \abs{f(x, t) - g(x)} < \varepsilon$
 
 \end{definition}
 
 \begin{remark}\thmslashn
 	
-	$f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$  равномерно на $X \Leftrightarrow \sup\limits_{x\in X} \abs{f(x, t) - g(x)} \underset{t\to t_0}\to 0$
+	$f(x, t) \toto{t\to t_0} g(x)$  равномерно на $X \Leftrightarrow \sup\limits_{x\in X} \abs{f(x, t) - g(x)} \underset{t\to t_0}\to 0$
 	
 \end{remark}
 
 \begin{theorem}\thmslashn
 	
-	$f(x, t)$ суммируема при всех $t \in T$, $\mu X < + \infty,\, f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$ на $X$
+	$f(x, t)$ суммируема при всех $t \in T$, $\mu X < + \infty,\, f(x, t) \toto{t\to t_0} g(x)$ на $X$
 	
 	Тогда $g$ суммируема и $\int\limits_{X} f(x, t) \,d\mu (x) \to \int\limits_{X} g(x)\,d\mu$
 	
@@ -46,6 +46,6 @@
 	
 	Условие про $\mu X < +\infty$ существенно
 	
-	$f_n(x) = \frac{1}{n} \mathbf{1}_{[0, n]}(x) \quad f_n \underset{t\to t_0}\rightrightarrows 0 \quad \int\limits_{0}^{+\infty} f_n(x) \,dx = 1 \not \to \int\limits_{0}^{+\infty} 0 \,dx$ 
+	$f_n(x) = \frac{1}{n} \mathbf{1}_{[0, n]}(x) \quad f_n \toto{t\to t_0} 0 \quad \int\limits_{0}^{+\infty} f_n(x) \,dx = 1 \not \to \int\limits_{0}^{+\infty} 0 \,dx$ 
 	
 \end{remark}

@@ -1,1 +1,45 @@
-\Subsection{Билет 49: NAME}
+\Subsection{Билет 49: Признак Вейерштрасса. Следствие. Пример.}
+
+\begin{theorem}[Вейерштрасса]\thmslashn
+	
+	$f, g: [a, +\infty)\ times T \to \R$ интегрируемы на $[a, b]$ $\forall t \in T$ и $\forall b > a$
+	
+	$\abs{f(x, t)} \leqslant g(x, t) \;\; \forall t \in T \;\; \forall x > a$ и $\int\limits_{a}^{+\infty} g(x, t)\,dx$ сх-ся равномерно
+	
+	Тогда $\int\limits_{a}^{+\infty} f(x, t)\,dx$ сх-ся равномерно
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Критерий Коши 
+	
+	$\int\limits_{a}^{+\infty} g(x, t)\,dx$ равномерно сх-ся $\Rightarrow$ 
+	
+	$\forall \varepsilon > 0\;\; \exists B > a\;\; \forall b, c > b\;\; \forall t \in T \quad \abs{\int\limits_{b}^{c}g(x, t)\,dx} < \varepsilon$
+	
+	$\abs{\int\limits_{b}^{c}f(x, t)\,dx} \leqslant \int\limits_{b}^{c}\abs{f(x, t)}\,dx \leqslant \abs{\int\limits_{b}^{c}g(x, t)\,dx} < \varepsilon \Rightarrow$ по критерию Коши $\int\limits_{a}^{+\infty}f(x, t)\,dx$ равномерно сх-ся
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	Если $\abs{f(x, t)}\leqslant g(x) \;\; \forall t \in T \;\; \forall x > a$ и $\int\limits_{a}^{+\infty} g(x)\,dx$ сходится
+	
+	Тогда $\int\limits_{a}^{+\infty}f(x, t)\,dx$ равномерно сх-ся
+	
+\end{consequence}
+
+\begin{example}\thmslashn
+	
+	$\int\limits_{0}^{+\infty} \dfrac{\cos(xt)}{1 + x^2}\,dx$ сх-ся равномерно
+	
+	$g(x) = \dfrac{1}{1 + x^2} \;\; \int\limits_{0}^{+\infty} \dfrac{1}{1 + x^2}\,dx$ -- сх-ся $\abs{\dfrac{\cos(xt)}{1 + x^2}} \leqslant g(x)$
+	
+\end{example}
+
+\begin{remark}\thmslashn
+	
+	Если у $\abs{f(x, t)}$ есть суммируемая мажоранта, то сх-ть $\int\limits_{a}^{+\infty}f(x, t)\,dx$ равномерная.
+	
+\end{remark}

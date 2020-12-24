@@ -1,1 +1,38 @@
-\Subsection{Билет 51: NAME}
+\Subsection{Билет 51: Признак Абеля.}
+
+\begin{theorem}[Признак Абеля]\thmslashn
+	
+	$f, g: [a, +\infty)\times T \to \R$ интегрируемы на $[a, b]$ $\forall b > a$
+	
+	Если \begin{enumerate}[1)]
+		\item 
+		$\int\limits_{a}^{+\infty} f(x, t)\,dx$ равномерно сх-ся
+		
+		\item
+		$g(x, t) \leqslant M \;\; \forall x\in [a, +\infty) \;\; \forall t \in T$
+		
+		\item
+		$g(x, t)$ монотонна по $x$ при любом фиксированном $t \in T$
+	\end{enumerate}
+	
+	Тогда $\int\limits_{a}^{+\infty} f(x, t)g(x, t)\,dx$ сх-ся равномерно
+	
+\end{theorem}
+
+\begin{proof}
+	Только для дифференцируемых  функций $g$ 
+	
+	$F_b(u, t) := \int\limits_{b}^{u} f(x, t)\,dx$
+	
+	$\int\limits_{b}^{c} f(x, t)g(x, t) \, dx = F_b(x, t)g(x, t) \Big|_{x = b}^{x = c} - \int\limits_{b}^{c} F(x, t)g_x'(x, t) \, dx$
+	
+	Проверяем критерий Коши, т.е., что при достаточно больших $b$ и $c$ $\abs{\int\limits_b^c} < \varepsilon$
+	
+	Найдется $B > a$, т.ч. $\abs{F_b(u, t)} < \varepsilon\;\; \forall b > B\;\; \forall t \in T$
+	
+	$\abs{F_b(x, t)g(x, t) \Big|_{x = b}^{x = c}} = \abs{F_b(c, t)g(c, t)} < \varepsilon M$
+	
+	$\abs{\int\limits_{b}^{c} F(x, t)g_x'(x, t) \, dx} \leqslant \int\limits_{b}^{c} \abs{F(x, t)}\abs{g_x'(x, t)} \, dx < \varepsilon \int\limits_{b}^{c} \abs{g_x'(x, t)} \, dx = \varepsilon \abs{\int\limits_{b}^{c} g_x'(x, t) \, dx} = \varepsilon \abs{g(c, t) - g(b, t)} \leqslant 2M\varepsilon$
+	
+	
+\end{proof}

@@ -1,1 +1,71 @@
-\Subsection{Билет 52: NAME}
+\Subsection{Билет 52: Теорема о перестановке предела и интеграла. Существенность условий. Непрерывность равномерно сходящихся интегралов.}
+
+\begin{theorem}\thmslashn
+	
+	$f, g: [a, +\infty)\times T \to \R \qquad t_0$ -- предельная точка $T$. 
+	
+	Если \begin{enumerate}[1)]
+		\item 
+		$\forall b > a \quad f(x,t) \toto{t\to t_0} \phi(x)$ равномерно на $[a, b]$
+		
+		\item
+		$\int\limits_{a}^{+\infty} f(x, t)\,dx$ равномерно на $T$
+	\end{enumerate}
+	
+	Тогда $\lim\limits_{t\to t_0}\int\limits_{a}^{+\infty} f(x, t)\,dx = \int\limits_{a}^{+\infty} \phi(x)\,dx$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Берем $B$ из критерия Коши $\forall b, c > B \;\; \forall t \in T \;\;\abs{\int\limits_{a}^{c} f(x, t)\,dx} < \varepsilon$
+	
+	$\abs{\int\limits_{a}^{c} f(x, t)\,dx} \to \abs{\int\limits_{a}^{c} \phi(x)\,dx} \leqslant \varepsilon \Rightarrow$ выполняется критерий Коши для $\phi \Rightarrow \int\limits_{a}^{+\infty} \phi(x)\,dx$ сх-ся
+	
+	$\abs{\int\limits_{a}^{+\infty} f(x, t)\,dx - \int\limits_{a}^{+\infty} \phi(x)\,dx} \leqslant \abs{\int\limits_{a}^{b} (f(x, t) - \phi(x))\,dx} + \abs{\int\limits_{b}^{+\infty} f(x, t)\,dx} + \abs{\int\limits_{b}^{+\infty} \phi(x)\,dx}$
+	
+	Возьмем $B$, т.ч. $ \forall b > B \;\; \forall t \in T \quad \abs{\int\limits_{b}^{+\infty} f(x, t)\,dx} < \varepsilon$ (можно по пункту 2)
+	
+	и $\forall b > B \;\; \forall t \in T \quad \abs{\int\limits_{b}^{+\infty} \phi(x)\,dx} < \varepsilon $(можно, тк  $\int\limits_{a}^{+\infty} \phi(x)\,dx$ сх-ся)
+	
+	$ \abs{\int\limits_{a}^{b} (f(x, t) - \phi(x))\,dx} \leqslant  \int\limits_{a}^{b} \abs{f(x, t) - \phi(x)}\,dx \leqslant (b-a) \sup\limits_{x\in [a, b]} < (b-a) \dfrac{\varepsilon}{b-a} = \varepsilon$ при $t$ близком к $t_0$
+	
+\end{proof}
+
+\begin{example} Без равномерности теорема не выполняется
+
+	$f (x, t) = 
+	\left\lbrace
+	\begin{aligned}
+		&1/t \text{ при } 0 \leqslant x \leqslant t \\
+		&0 \text{ при } x > t
+	\end{aligned}
+	\right. \toto{t\to + \infty} 0
+	$ равномерно на $[0, +\infty)$
+	
+	$\int\limits_{0}^{+\infty} f(x, t)\,dx = 1 \not \to 0$
+	
+\end{example}
+
+
+\begin{theorem}\thmslashn
+	
+	$f \in C([a, +\infty) \times [c, d])$ и $F(t) = \int\limits_{a}^{+\infty} f(x, t)\,dx$ равномерно сх-ся
+	
+	Тогда $F \in C[c, d]$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$F_n(t) := \int\limits_{a}^{n} f(x, t)\,dx \toto{} F(t)$ и $F_n$ непрерывны на $[a, n]\times[c, d]$ (тк у нас интеграл по одной переменной на компакте) $\Rightarrow$, тк равномерный предел сохраняет свойство непрерывности, то $F\in C[c, d]$ 
+	
+\end{proof}
+
+\begin{remark}[Без равномерной сх-ти интеграла это неверно]\thmslashn
+	
+	$f(x, t) = te^{-t^2x} \qquad \int\limits_{0}^{+\infty} te^{-t^2x}\,dx = \dfrac{e^{-t^2x}}{-2t}\Big|_{x = 0}^{x = +\infty} = \dfrac{1}{2t}$ при $t \not = 0$
+	
+	при $t = 0$ $\int\limits_{0}^{+\infty} te^{-t^2x}\,dx = 0 \Rightarrow$ нет непрерывности, хотя $f(x, t)$ -- непрерывная функция.
+	
+\end{remark}

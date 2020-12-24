@@ -1,1 +1,67 @@
-\Subsection{Билет 50: NAME}
+\Subsection{Билет 50: Признак Дирихле. Интеграл $\int\limits_{1}^{+\infty} \dfrac{\sin(x)}{x^p}\,dx$}
+
+\begin{theorem}[Признак Дирихле]\thmslashn
+	
+	$f, g: [a, +\infty)\times T \to \R$ интегрируемы на $[a, b]$ $\forall b > a$
+	
+	Если \begin{enumerate}[1)]
+		\item 
+		$\forall b > a\;\; \forall t \in T \quad \abs{\int\limits_{a}^{b} f(x, t)\,dx} \leqslant M$
+		
+		\item
+		$g(x, t) \toto{x\to +\infty} 0$ равномерно на $T$
+		
+		\item
+		$g(x, t)$ монотонна по $x$ при любом фиксированном $t \in T$
+	\end{enumerate}
+
+	Тогда $\int\limits_{a}^{+\infty} f(x, t)g(x, t)\,dx$ сх-ся равномерно
+	
+\end{theorem}
+
+\begin{proof}
+	Только для дифференцируемых  функций $g$ 
+	
+	$F(u, t) := \int\limits_{a}^{u} f(x, t)\,dx$
+	
+	Тогда $\abs{F(u, t)} \leqslant M \;\; \forall u, t$
+	
+	$\int\limits_{a}^{c} f(x, t)g(x, t) \, dx = F(x, t)g(x, t) \Big|_{x = a}^{x = c} - \int\limits_{a}^{c} F(x, t)g_x'(x, t) \, dx$
+	
+	$\abs{F(c, t) g(c, t)} \leqslant M \abs{g(c, t)} \toto{c\to + \infty} 0$
+	
+	Давайте по Вейерштрассу проверим, что $\int\limits_{a}^{\infty} F(x, t)g_x'(x, t) \, dx$ равномерно сх-ся.
+	
+	$\abs{F(x, t)g_x'(x, t)} \leqslant M \abs{g_x'(x, t)} \Rightarrow $ надо понять, что $\int\limits_{a}^{c} \abs{g_x'(x, t)} \, dx$ равномерно сх-ся
+	
+	$\int\limits_{a}^{c} \abs{g_x'(x, t)} \, dx = \abs{\int\limits_{a}^{c} g_x'(x, t)} = \abs{g(c, t) - g(a, t)} \toto{c\to+\infty} |g(a, t)|$
+	
+	Первый переход мы сделали, т.к. $g(x, t)$ монотонна $\Rightarrow$ ее производная не меняет знак.
+	
+\end{proof}
+
+\begin{example}\thmslashn
+	
+	$\int\limits_{1}^{+\infty} \dfrac{\sin(x)}{x^p}\,dx \qquad \begin{aligned}
+		&\text{сх-ся равномерно при } p \geqslant p_0 > 0 \\
+		&\text{но неравномерно на } p > 0
+	\end{aligned}$
+	
+	Нет сходимости при $p = 0 \Rightarrow$ нет равномерной сх-ти при $p > 0$
+	
+	Пусть $p \geqslant p_0 > 0\qquad f(x, p) = \sin x, \;\; g(x, p) = \dfrac{1}{x^p}$
+	
+	\begin{enumerate}
+		\item 
+		$\abs{\int\limits_{a}^{b} f(x, t) \, dx} = \abs{\int\limits_{a}^{b} \sin x \, dx} = \abs{\cos a - \cos b} \leqslant 2$
+		
+		\item
+		$\dfrac{1}{x^p} \toto{} 0 \qquad \dfrac{1}{x^p}\leqslant \dfrac{1}{x^{p_0}} \to 0$
+		
+		\item
+		$\dfrac{1}{x^p}$ монотонна при любом фиксированном $p$.
+	\end{enumerate}
+	
+	Значит есть равномерная сходимость по признаку Дирихле.
+	
+\end{example}
