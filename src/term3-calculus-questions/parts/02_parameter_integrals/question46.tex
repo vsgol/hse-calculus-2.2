@@ -1,1 +1,80 @@
-\Subsection{Билет 46: NAME}
+\Subsection{Билет 46: Дифференцируемость собственных интегралов с параметром. Формула Лейбница.}
+
+\begin{theorem}\thmslashn
+	
+	Если $T\subset \R$ промежуток, $f_t'(x, t)$ при всех $x \in X$, $t \in T$ и $f_t'(x, t)$ удовлетворяет локальному условию Лебега в точке $t_0$, $f(x, t)$ -- суммируема $\forall t \in T$
+	
+	Тогда $F(t) = \int\limits_X f(x,t) \, d\mu (x)$ дифференцируема в точке $t_0$ и $F'(t_0) = \int\limits_X f'(x,t) \, d\mu (x)$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\dfrac{F(t_0 + h) - F(t_0)}{h} = \int\limits_X \dfrac{f(x, t_0 + h) - f(x, t_0)}{h}\,d\mu(x) =: \int\limits_X g(x, h)\,d\mu (x)$
+	
+	$\lim\limits_{h \to 0} \int\limits_X g(x, h)\,d\mu(x) = \int\limits_X \lim\limits_{h \to 0} g(x, h)\,d\mu(x)$ хотим доказать
+	
+	А для этого достаточно доказать локальное условие Лебега в точке $h = 0$ (теорема из 44 билета)
+	
+	$g(x, h) = f_t'(x, t_0 + \theta_x h) \quad 0 \leqslant \theta_x \leqslant 1 \quad$ по условию для $f_t'(x, t)$ есть локальное условие Лебега $\Rightarrow$ $\exists U_{t_0}$, т.ч. $\abs{f_t'(x, t)} \leqslant \Phi(x)$ -- суммируема. 
+	
+	Если $h$, т.ч. $t_0 + h \in U_{t_0} \Rightarrow t_0 + \theta_xh \in U_{t_0} \Rightarrow |g(x, h)| \leqslant \Phi(x)$ 
+	
+	Значит для $g(x, h)$ есть суммируемая мажоранта.
+	
+\end{proof}
+
+
+
+\begin{consequence}\thmslashn
+	
+	$f \in C(X\times T)$, $X$ -- компакт, $\mu X < + \infty$, $T \subset \R$ промежуток
+	
+	$f_t' \in C(X \times T)$. Тогда $F \in C^1(T)$ и $F'(t) = \int\limits_X f_t'(x, t)\,d\mu(x)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$t_0 \in T$ берем $t_0 \in [a,b] \subset T \Rightarrow X \times [a, b]$ -- компакт
+	
+	$f_t'$ непрерывна на компакте $\Rightarrow$ ограниченна $\abs{f_t'(x, t)} \leqslant M =: \Phi(x)$ -- суммируема
+	
+\end{proof}
+
+\begin{theorem}[формула Лейбница]\thmslashn
+	
+	$f:[a, b] \times [c, d] \to \R$
+	
+	$f, f_t' \in C([a, b] \times [c, d]) \quad \phi, \psi : [c, d]\to [a, b]$ непрерывна дифференцируема
+	
+	Тогда $F(t) = \int\limits_{\phi(t)}^{\psi(t)} f(x, t) \,dx \in C^1[c,d]$ и 
+	
+	$F'(t) = f(\psi(t), t) \psi'(t) - f(\phi(t), t)\phi'(t) + \int\limits_{\phi(t)}^{\psi(t)} f_t'(x, t)\,dx$
+	
+\end{theorem}
+
+
+\begin{proof}\thmslashn
+	
+	$\Phi(\alpha, \beta, t): = \int\limits_{\alpha}^{\beta} f(x, t)\,dx$ 
+	
+	У данной функции мы знаем частные производные
+	
+	$ \frac{\partial \Phi}{\partial t} = \int\limits_{\alpha}^{\beta} f_t'(x, t)\,dx $
+	
+	$ \frac{\partial \Phi}{\partial \alpha} = -f(\alpha, t) $
+	
+	$ \frac{\partial \Phi}{\partial \beta} = f(\beta, t) $
+	
+	Это все непрерывные функции, а т.к. все частные производные непрерывные, то и сама функция непрерывная.
+	
+	$F'(t) = \Phi'(\phi(t), \psi(t), t) = \begin{pmatrix}
+	-f(\phi(t), t)\\
+	f(\psi(t), t) \\
+	\int\limits_{\phi(t)}^{\psi(t)} f_t'(x, t)\,dx
+	\end{pmatrix} \cdot (\phi'(t), \psi'(t), 1)$
+	
+\end{proof}
+
+

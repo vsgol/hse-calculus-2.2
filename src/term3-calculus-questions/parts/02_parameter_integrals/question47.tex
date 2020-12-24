@@ -1,1 +1,51 @@
-\Subsection{Билет 47: NAME}
+\Subsection{Билет 47: Вычисление интеграла $\int\limits_{0}^{+\infty} e^{-x^2} \cos(t x)\,dx$. Равномерный переход к пределу под знаком интеграла.}
+
+\begin{example}\thmslashn
+	
+	$F(t) = \int\limits_{0}^{+\infty} e^{-x^2} \cos(t x)\,dx$
+	
+	$F'(t) = \int\limits_{0}^{+\infty} \left(e^{-x^2} \cos(t x)\right)_t\,dx = -\int\limits_{0}^{+\infty}x e^{-x^2} \sin(t x)\,dx = \dfrac{e^{-x^2}}{2} \sin(x t)\Big|^{x = +\infty}_{x = 0} -\int\limits_{0}^{+\infty}\frac{e^{-x^2}}{2} t \cos(t x)\,dx = =0 - \int\limits_{0}^{+\infty}\frac{e^{-x^2}}{2} t \cos(t x)\,dx = -\frac{t}{2}F(t)$
+	
+	$F'(t) + \frac{t}{2}F(t) = 0 \Rightarrow \left(e^{t^2/4} F(t) \right)' = e^{t^2/4} \frac{t}{2} F(t) + e^{t^2/4} F'(t) = 0$ нулевая производная, значит это константа
+	
+	$F(t) = Ce^{-t^2/4}$
+	
+	$F(0) = \int\limits_{0}^{+\infty}e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}$
+	
+\end{example}
+
+\begin{definition}\thmslashn
+	
+	$f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$  равномерно на $X$, если 
+	
+	$\forall \varepsilon > 0\,\, \exists \delta > 0 \; \forall t \in T \,\, \rho_T(t, t_0) < \delta \,\, \forall x \in X \Rightarrow \abs{f(x, t) - g(x)} < \varepsilon$
+
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	$f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$  равномерно на $X \Leftrightarrow \sup\limits_{x\in X} \abs{f(x, t) - g(x)} \underset{t\to t_0}\to 0$
+	
+\end{remark}
+
+\begin{theorem}\thmslashn
+	
+	$f(x, t)$ суммируема при всех $t \in T$, $\mu X < + \infty,\, f(x, t) \underset{t\to t_0}\rightrightarrows g(x)$ на $X$
+	
+	Тогда $g$ суммируема и $\int\limits_{X} f(x, t) \,d\mu (x) \to \int\limits_{X} g(x)\,d\mu$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\abs{\int\limits_{X} f(x, t) \,d\mu (x) - \int\limits_{X} g(x)\,d\mu} \leqslant \int\limits_{X} \abs{f(x, t) - g(x)}\,d\mu \leqslant \mu X \cdot \sum\limits_{x\in X} |f(x, t) - g(x)| \to 0$	
+	
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	Условие про $\mu X < +\infty$ существенно
+	
+	$f_n(x) = \frac{1}{n} \mathbf{1}_{[0, n]}(x) \quad f_n \underset{t\to t_0}\rightrightarrows 0 \quad \int\limits_{0}^{+\infty} f_n(x) \,dx = 1 \not \to \int\limits_{0}^{+\infty} 0 \,dx$ 
+	
+\end{remark}

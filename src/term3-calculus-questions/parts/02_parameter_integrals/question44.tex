@@ -1,1 +1,59 @@
-\Subsection{Билет 44: NAME}
+\Subsection{Билет 44: Переход к пределу под знаком интеграла при наличии локального условия Лебега. Сохранение непрерывности.}
+
+\begin{definition}\thmslashn
+	
+	$(X, \mathcal{A}, \mu)$ -- пространство с  мерой, $T$ - метрическое пр-во
+	
+	$E_t \in \mathcal{A} \quad f(\cdot, t)$ измерима при всех $t \in T$
+	
+	$F(t):= \int\limits_{E_t} f(x, t) \,d\mu (x)$ -- интеграл зависящий от параметра
+	
+\end{definition}
+
+\begin{theorem}\thmslashn
+	
+	Пусть $t_0$ -- предельная точка $T$, $(X, \mathcal{A}, \mu)$ -- пространство с  мерой
+	
+	При всех $t$ ф-я $f(x, t)$ суммируема и $\lim\limits_{t\to t_0}f(x, t) = g(x)$
+	
+	Если существует окр-ть $U_{t_0}$ и суммируемая ф-я $\Phi$, т.ч. $\forall t \in U_{t_0}\quad \abs{f(x, t)} \leqslant \Phi(x)$
+	
+	то $\int\limits_{X} f(x, t) \,d\mu (x) \to \int\limits_{X} g(x)\,d\mu$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Докажем по Гейне
+	
+	Проверяем на последовательности $tn \to t_0 \quad f_n(x) := f(x, t_n)$
+	
+	По условию $\abs{f_n(x)} = \abs{f(x, t_n)} \leqslant \Phi(x)$ при достаточно больших $n$. 
+	
+	Тогда по теореме Лебега $\int\limits_{X} f(x, t) \,d\mu (x) = \int\limits_{X} f_n(x) \,d\mu (x)\to \int\limits_{X} g(x)\,d\mu$ 
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	Если $f$ непрерывна в точке $t_0$ при п.в. $x \in X$
+	
+	$\abs{f(x, t)} \leqslant \Phi(x) \quad \forall f\in U_{t_0},\, \forall x \in X \quad \Phi$ -- суммируема
+	
+	Тогда $F(t) := \int\limits_{X} f(x, t) \,d\mu (x)$ непрерывна в точке $t_0$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	Если $t_0$ -- предельная точка, то теорема, если нет, то $F(x)$ непрерывна в точке $t_0$
+	
+\end{proof}
+
+\begin{definition}\thmslashn
+	
+	"Если существует окр-ть $U_{t_0}$ и суммируемая ф-я $\Phi$, т.ч. $\forall t \in U_{t_0}\quad \abs{f(x, t)} \leqslant \Phi(x)$" -- локальное условие Лебега в точке $t_0$.
+	
+\end{definition}
+
+

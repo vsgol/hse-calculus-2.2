@@ -1,1 +1,61 @@
-\Subsection{Билет 45: NAME}
+\Subsection{Билет 45: Произведение компактов. Непрерывность собственных интегралов с параметром (на компакте и на открытом множестве).}
+
+
+\begin{lemma}
+	
+	Декартово произведение компактов -- компакт. 
+	
+\end{lemma}
+
+\begin{remark}
+	
+	Метрика на декартовом произведении 
+	
+	$(X, \rho_X), (Y, \rho_Y)$ -- метрические про-ва $(X\times Y, \rho) \quad \rho((x, y), (\bar{x}, \bar{y})) = \rho_X(x, \bar{x}) + \rho_Y(y, \bar{y})$ -- метрика в $X\times Y$	
+	
+\end{remark}
+
+\begin{proof}\thmslashn
+	
+	
+	$A\subset X$ -- компакт $\Rightarrow$ возьмём $\varepsilon > 0 \quad A_\varepsilon$ -- конечная $\varepsilon$-сеть для $A$
+	
+	Аналогично для $B\subset Y$ $B_\varepsilon$ -- конечная $\varepsilon$-сеть для $B$
+	
+	$A_\varepsilon \times B_\varepsilon$ -- $2\varepsilon$-сеть для $A\times B \Rightarrow A\times B$ -- компакт
+	
+	Но для последнего следствия нужна еще и полнота $A\times B$, ну а это верно, тк $A$ и $B$ полные.
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$\mu X < +\infty$, $X$ и $T$ -- компакты, $f \in C(X\times T)$
+	
+	Тогда $F(t) = \int\limits_{X} f(x, t) \,d\mu (x) \in C(T)$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\abs{f(x, t)}\leqslant M \quad \forall x \in X \,\,\forall t \in T \quad \Phi(x):= M$ -- суммируемая мажоранта $\Rightarrow$ можем подставить в теорему $2.1$
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	Если $\Omega \subset \R^n$ открыто, $\mu X < +\infty$, $X$ -- компакт
+	
+	$f\in C(X\times\Omega)$, тогда $F \in C(\Omega)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	Проверим непрерывность $F$ в точке $t_0 \in \Omega$
+	
+	Тогда $\bar{B_r}(t_0) \subset \Omega$ для некоторого $r > 0$
+	
+	$f\in C(X \times \bar{B_r}(t_0)) \Rightarrow F \in C(\bar{B_r}(t_0)) \Rightarrow F\in C(B_r(t_0)) \Rightarrow F$ непрерывна в точке $t_0$.
+	
+\end{proof}
