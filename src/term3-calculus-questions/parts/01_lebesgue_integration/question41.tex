@@ -1,1 +1,73 @@
-\Subsection{Билет 41: NAME}
+\Subsection{Билет 41: Диффеоморфизм. Лемма о «расщеплении» диффеоморфизма. Теорема Линделёфа.}
+
+\begin{definition}\thmslashn 
+	
+	$\Omega_1$ и $\Omega_2$ -- открытые подмножества в $\R^m$
+	
+	$\Phi: \Omega_1\to\Omega_2$ -- диффеоморфизм, если $\Phi$ -- биекция, $\Phi \in C^1(\Omega_1)$ и $\Phi^{-1} \in C^1{\Omega_2}$
+	
+\end{definition}
+
+\begin{theorem}[Линделефа]\thmslashn
+	
+	$\Omega$ -- открытое множество в $\R^m$
+	
+	Из любого его покрытия открытыми множествами можно выбрать нбсч подпокрытие
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$a\in \Omega$ она покрыта каким-то открытым $U \Rightarrow \exists r_a > 0$, т.ч. $B_{r_{a}}(a) \in U$. Подправим этот шарик так, что его центр будет с рац. координатами и его радиус будет рац. Назовем его $B_a$, $B_a \subset U$ Различных шариков нбчс. 
+	
+\end{proof}
+
+\begin{lemma}\thmslashn
+	
+	$\Phi: \Omega\to\tilde{\Omega}$ -- диффеоморфизм $\quad \Omega, \tilde{\Omega} \subset \R^n$
+	
+	$a\in \Omega$, тогда существует окрестность $U_a$ точки $a$, тч 
+	
+	$\left.\Phi\right|_{U_a} = \Phi_1 \circ \Phi_2$, где $\Phi_2:U_a \to \Phi_2(U_a)$ и $\Phi_1:\Phi_2(U_a)\to\Phi(U_a)$ -- диффеоморфизмы
+	
+	причем $\Phi_1$ оставляет на месте $0 < m < n$ координат, а $\Phi_2$ оставляет на месте $n-m$ координат
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+
+	$x, u \in \R^m, y, v \in R^{n-m} \quad \Phi(x, y) = (\phi(x, y), \psi(x, y))$
+	
+	$\Phi_1(u, v) = (u, f(u, v))$ и $\Phi_2(u, v) = (g(u, v), v)$
+	
+	$\Phi_1 \circ \Phi_2 (x, y) = \Phi_1(g(x,y), y) = (g(x, y), f(g(x, y), y)) = \Phi (x, y) = (\phi(x, y), \psi(x, y)) \Rightarrow$
+	
+	$\Rightarrow g(x, y) = \phi(x, y)$ и $f(\phi(x, y), y) = \psi(x, y) \Rightarrow f(u, v) = \psi(\Phi_2^{-1}(u, v)) \Rightarrow$ 
+	
+	$\Rightarrow$ нужна локальная обратимость $\Phi_2$. Она будет, если $\det \Phi_2'(a) \not = 0$
+	
+	$\det\Phi_2' = \begin{pmatrix}
+	g_u' & g_v'\\
+	0 & I
+	\end{pmatrix} = \det g_u' = \det \phi_u'$
+	
+	Т.е. нам нужен ненулевой минор $m\times m$ матрицы $\Phi'$, который $\not = 0$. 
+	
+	Но если все миноры $=0$, то $\det\Phi' = 0$, но это не так.
+	
+	Мы сейчас могли переставить как-то столбцы и строчки, пока искали ненулевой минор.
+
+\end{proof}
+
+
+\begin{consequence}\thmslashn
+
+	В условии леммы найдется такая $U_a$, что
+	
+	$\left. \Phi\right|_{U_a} = \Phi_1\circ \Phi_2 \circ \ldots \circ \Phi_n$, где $\Phi_k$ -- диффеоморфизмы и они оставляют на месте все координаты, кроме одной.
+
+\end{consequence}
+
+\begin{proof}Индукция
+\end{proof}
+

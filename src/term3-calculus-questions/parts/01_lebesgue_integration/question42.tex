@@ -1,1 +1,70 @@
-\Subsection{Билет 42: NAME}
+\Subsection{Билет 42: Теорема о замене переменной в интеграле Лебега. Частные случаи. Вычисление интеграла $\int_{-\infty}^{+\infty} e^{-x^2}\,dx$}
+
+\begin{theorem}[ф-ла замены переменной в интеграле по мере Лебега]\thmslashn 
+	
+	$\Omega \subset \R^m \quad \Phi:\Omega \to \tilde{\Omega}$ -- диффеоморфизм, 
+	
+	$f:\tilde{\Omega}\to \bar{\R}\quad f \geqslant 0$ измерима
+	
+	Тогда $\int\limits_{\tilde{\Omega}} f\,d\lambda_m = \int\limits_{\Omega} f(\Phi(x)) \abs{J_\Phi(x)}\,d\lambda_m(x)$
+	
+	Аналогичное равенство есть для ф-и $f$, суммируемой на $\tilde{\Omega}$
+
+	$J_\Phi$ -- якобиан отображения $\Phi$ -- определитель матрицы Якоби
+	
+	$J_\Phi = \det\begin{pmatrix}
+	{\partial u_1 \over \partial x_1} & {\partial u_1 \over \partial x_2} & \cdots & {\partial u_1 \over \partial x_n} \\
+	{\partial u_2 \over \partial x_1} & {\partial u_2 \over \partial x_2} & \cdots & {\partial u_2 \over \partial x_n} \\
+	\vdots & \vdots & \ddots &\vdots \\
+	{\partial u_m \over \partial x_1} & {\partial u_m \over \partial x_2} & \cdots & {\partial u_m \over \partial x_n}
+	\end{pmatrix}$
+\end{theorem}
+
+
+\begin{remark}[Важные частные случаи] \thmslashn
+
+\begin{enumerate}
+	\item $\Phi$ -- сдвиг на вектор $a$
+	
+	$\int\limits_{\R^m} f \,d\lambda_m = \int\limits_{\R^m}f(x+a)\,d\lambda_m$
+	
+	\item Линейна замена $L:\R^m \to \R^m$ -- обратимое линейное отображение
+	
+	$\int\limits_{\R^m} f \,d\lambda_m = \abs{\det L}\int\limits_{\R^m}f(L(x))\,d\lambda_m$
+	
+	матрица Якоби и матрица линейного отображения совпадают
+	
+	
+	\item Гомотетия $c \not= 0\,\, c\in \R$
+	$\int\limits_{\R^m} f \,d\lambda_m = \abs{c^m}\int\limits_{\R^m}f(cx)\,d\lambda_m$
+	
+\end{enumerate}
+
+\end{remark}
+
+\begin{example}
+	Полярные координаты 
+	
+	$x = r \cos \phi, \quad y = r \sin \phi$
+	
+	$\R^2 \O_x$ -- образ $(0, +\infty) \times (0, 2\pi)$
+	
+	Можем рассматривать множества $\R^2$ и $[0, +\infty) \times [0, 2\pi]$, тк мы добавили множество нулевой меры.
+	
+	$\Phi(r, \phi) = \begin{pmatrix}
+	r \cos \phi \\
+	r \sin \phi
+	\end{pmatrix} \Rightarrow \Phi' = \begin{pmatrix}
+	\cos \phi & - r\sin\phi\\
+	\sin \phi & r\cos \phi
+	\end{pmatrix} \Rightarrow \det \Phi' = r$
+	
+	$\int\limits_{\R^2} f(x, y) \,d\lambda_2(x, y) = \int\limits_{[0, \infty)} \int\limits_{[0, 2\pi]} r f(r\cos \phi, r \sin \phi) \,d\lambda_2(\phi, r)$
+	
+	Подставим $f(x, y) = e^{-x^2-y^2}$
+
+	$\int\limits_{\R^2} e^{-x^2-y^2} \,d\lambda_2(x, y) = \int\limits_{[0, \infty)} \int\limits_{[0, 2\pi]} r e^{-r^2} \,d\lambda_2(\phi, r) = 2\pi \int\limits_0^\infty r e^{-r^2} \,dr = \pi \int\limits_{0}^{+\infty} e^{-t}\,dt = \pi$
+	
+	$\int\limits_{\R^2} e^{-x^2-y^2} \,dx\,dy = \int\limits_{\R} e^{-x^2} \,dx \int\limits_{\R} e^{-y^2} \,dy = \left(\int\limits_{\R} e^{-x^2} \,dx \right)^2 \Rightarrow\int\limits_{\R} e^{-x^2} \,dx = \sqrt{\pi}$
+
+\end{example}

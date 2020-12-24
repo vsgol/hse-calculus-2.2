@@ -1,1 +1,77 @@
-\Subsection{Билет 43: NAME}
+\Subsection{Билет 43: Теорема об изменении меры множества при диффеоморфизме.}
+
+\begin{theorem}\thmslashn
+	
+	$\Phi: \Omega \to \tilde{\Omega}$ диффеоморфизм, $A \subset \Omega \subset \R^n$ измеримо
+	
+	Тогда $\lambda \Phi(A) = \int\limits_{\Phi(A)} \mathbf{1}\,d\lambda_n = \int\limits_{A} \abs{J_\Phi}\,d\lambda_n$
+\end{theorem}
+
+\begin{remark}\thmslashn
+	
+	Если для конкретного $\Phi$ д-на эта теорема, то для этого же $\Phi$ есть формула замены переменной.
+	
+	$\mu A := \int\limits_{A} \abs{J_\Phi} \,d\lambda_n$ -- мера с плотностью $\abs{J_\Phi}$ относительно меры Лебега 
+	
+	$\int\limits_\Omega f \circ \Phi \, d\mu = \int\limits_\Omega f \circ \Phi \abs{J_\Phi} \, d\lambda_m \quad$ но $\mu A = \lambda \Phi (A)$
+	
+	$\int\limits_{\tilde{\Omega}} f\,d\lambda = \int\limits_\Omega f \circ \Phi \, d\mu$  верно на $\mathbf{1}_\mathcal{B}\quad \lambda \mathcal{B} = \int\limits_\Omega \mathbf{1}_\mathcal{B} \circ \Phi \, d\mu = \mu \Phi^{-1}(\mathcal{B}) = \lambda \mathcal{B}$ 
+	
+	Для индикаторов верно $\Rightarrow$ для линейных верно $\Rightarrow$ по т. Беппо Леви верно всегда. 
+	
+\end{remark}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}[Шаг 1.]
+		\item Пусть $\Omega = \bigcup U_\alpha \quad$ $U_\alpha$ -- открытые и  для каждого $U_\alpha$ теория д-на. Тогда она доказана для $\Omega$. Выберем счетное подпокрытие $\bigcup U_\alpha$
+		
+		$A = \bigsqcup A_n \quad A_n = A \cap (U_n / \bigcup\limits_{k=1}^{n-1} U_k) \quad A_n \subset U_n \Rightarrow$ для $A_n$ теория верна.
+		
+		$\lambda \Phi(A) = \sum \lambda \Phi(A_n) = \sum \int\limits_{A_n} \abs{J_\Phi} \,d\lambda_n = \int\limits_{A} \abs{J_\Phi} \, d\lambda_n$
+		
+		
+		\item Если теория д-на для диффеоморфизмов $\Phi$ и $\Psi$, то она доказана для $\Phi \circ \Psi$
+		
+		$\lambda(\Phi(\Psi(A))) = \int\limits_{\Psi(A)} \abs{J_\Phi }\,d\lambda = \int\limits_{A} \abs{J_{\Phi} \circ \Psi}\abs{J_\Psi}\,d\lambda = \int\limits_{A} \abs{J_{\Phi \circ \Psi}}\,d\lambda$
+		
+		$\det (\Phi' \circ \Psi) \det \Psi' = \det (\Phi' \circ \Psi \cdot \Psi') = \det (\Phi \circ \Psi)' = J_{\Phi \circ \Psi}$
+		
+		\item $n = 1$ Надо д-ть, что $\int\limits_{\phi(A)} 1 \, d\lambda_1 = \int\limits_{A}|\phi'|\,d\lambda_1 \quad \phi:$интервал$\to \R$
+		
+		Знаем эту формулу для $A = [a,b]$. Это ф-ла замены переменной в одномерном $\int$.
+		
+		$\int\limits_{\phi[a, b)} = \lim\limits_{n \to \infty}\int\limits_{\phi[a, b-1/n]}1 \,d\lambda = \lim\limits_{n \to \infty}\int\limits_{[a, b-1/n]}\abs{\phi'} \,d\lambda = \lim\limits_{n \to \infty}\int\limits_{[a, b)}\abs{\phi'} \,d\lambda$
+		
+		К пределу можем перейти, тк у нас возрастающее множество.
+		
+		По единственности продолжения есть совпадение на всех измеримых множествах 
+		
+		$\mu A := \int\limits_{A} \abs{\phi'}\,d\lambda_1 \quad \nu A = \int\limits_{\phi(A)}1\,d\lambda$
+		
+		\item $\Phi$ оставляет на месте $n-1$ координату. 
+		
+		$x = (y, t)\quad y\in \R^{n-1}, t\in \R\quad\quad \Phi(y, t) = (y, \phi(y, t)) \quad (\Phi(A))_y = \phi(y, A_y)$
+		
+		$\lambda_n\Phi(A) = \int\limits_{\R^{n-1}} \lambda_1(\Phi(A)_y) \,d\lambda_{n-1}(y) = \int\limits_{\R^{n-1}}\lambda_1(\phi(y, A_y)) \,d\lambda_{n-1}(y) = \int\limits_{\R^{n-1}}\int\limits_{A_y} \abs{\phi_t'(y, t)} \,d\lambda_1(t)\,d\lambda_{n-1}(y) = $
+		
+		$= \int\limits_{\R^{n-1}}\int\limits_{A_y} \abs{\phi_t'(y, t)} \,d\lambda_1(t)\,d\lambda_{n-1}(y) = \int\limits_{A} \abs{J_\Phi}\,d\lambda_n$
+		
+		первый переход это принцип Кавальери, третий это мы находим меру множества $\phi(y, A_y)$. А последний переход это теорема Тонелли 
+		
+		$\Phi' = \begin{pmatrix}
+		1 & 0 & 0 &   & 0 & 0 \\
+		0 & 1 & 0 & \cdots & 0 & 0 \\
+		0 & 0 & 1 & \cdots & 0 & 0 \\
+		&  &\vdots & \ddots & \vdots & \\
+		0 & 0 & 0 & \cdots & 1 & 0 \\
+		\ldots& \ldots &\ldots &\ldots &\ldots & \phi_t' \\
+		\end{pmatrix} \Rightarrow J_\Phi = \phi_t'(y, t)$
+		
+		
+		\item Берем $\Phi$ расщепляем $\left. \Phi\right|_{U_a} = \Phi_1 \circ \Phi_2\circ \ldots \circ \Phi_n$ 
+		
+		Для каждого $\Phi_k$ теорема верна по шагу 4 $\Rightarrow $по Шагу 2 верна для $\left. \Phi\right|_{U_a} \Rightarrow$ по шагу 1 верна для $\Phi$
+	\end{enumerate}
+	
+\end{proof}

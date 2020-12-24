@@ -1,1 +1,70 @@
-\Subsection{Билет 40: NAME}
+\Subsection{Билет 40: Теорема об интеграле от функции распределения. Следствия.}
+Мы можем менять порядок интегрирования, только если есть суммируемость
+\begin{example}
+	\[
+	\begin{aligned}
+	&f(x,y) = \dfrac{x^2-y^2}{(x^2 + y^2)^2} \quad g(x, y) = \dfrac{2xy}{(x^2 + y^2)^2}\\
+	&\int_{-1}^1 f(x,y)\,dx = \left. -\dfrac{x}{x^2 + y^2} \right|_{x = -1}^{x=1} = \dfrac{2}{1+y^2} \\
+	& \int_{-1}^1\int_{-1}^1 f(x,y)\,dx\,dy = \int_{-1}^1 \dfrac{2}{1+y^2}\,dy = 
+	\left. \dfrac{2}{1 + y^2} \right|_{-1}^{1} = \pi\\
+	&\text{Если интегрировать в другом пордяке, то мы получим } -\pi\\
+	&\int_{-1}^1 g(x,y)\,dx = \left. -\dfrac{y}{x^2 + y^2} \right|_{x = -1}^{x=1} = 0 \\
+	& \int_{-1}^1\int_{-1}^1 g(x,y)\,dx\,dy = 0 = \int_{-1}^1\int_{-1}^1 g(x,y)\,dy\,dx
+	\end{aligned}
+	\]
+
+\end{example}
+
+
+\begin{theorem}\thmslashn 
+	
+	$(X, \mathcal{A}, \mu)$ -- пространство с $\sigma$-конечной мерой.
+	
+	$f: X \to \bar{\R}$ измерима
+	
+	Тогда $\int\limits_X \abs{f}\,d\mu = \int\limits_0^{+\infty}\mu X\{\abs{f} \geqslant t\}\,d\lambda_1(t)$
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\int\limits_X \abs{f}\,d\mu = m \mathcal{P}_{\abs{f}}\quad m = \mu \times \lambda_1\quad \mathcal{P}_{\abs{f}} \text{-- подграфик }\abs{f}$
+	
+	$m \mathcal{P}_{\abs{f}} = \int\limits_{X\times [0, +\infty)} \mathbf{1}_\mathcal{P} \, dm = \int\limits_{[0, +\infty)}\int\limits_X \mathbf{1}_\mathcal{P}(x, t) \, d\mu(x) \,d\lambda_1(t) = $
+	
+	Когда $\mathbf{1}_\mathcal{P}(x, t) = 1$ при фиксированном $t$? $\Leftrightarrow (x, t) \in \mathcal{P} \Leftrightarrow \abs{f(x)} \geqslant t$
+
+	$= \int\limits_0^{+\infty}\mu X\{\abs{f} \geqslant t\}\,d\lambda_1(t)$
+	
+\end{proof}
+
+\begin{consequence}
+	$\int\limits_X \abs{f}\,d\mu = \int\limits_0^{+\infty}\mu X\{\abs{f} > t\}\,d\lambda_1(t)$
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$g(t) = \mu X\{\abs{f} \geqslant t\}$ монотонно убывает $\Rightarrow$ у нее нбчс мн-во точек разрыва.
+	
+	$X\{\abs{f} > t\} = \bigcup\limits_{n=1}^{\infty} X\{\abs{f} \geqslant t + 1/n\}$
+	
+	$\mu X\{\abs{f} > t\} = \lim X\{\abs{f} \geqslant t + 1/n\} = \lim g(t + 1/n) = \lim\lim\limits_{s\to t^+} = g(t)$ при почти всех $t$. $\Rightarrow$ 
+	
+	$\Rightarrow$ интегралы совпадают.
+	
+\end{proof}
+
+
+\begin{consequence}
+	$\int\limits_X \abs{f}^p\,d\mu = \int\limits_0^{+\infty}pt^{p-1}\mu X\{\abs{f} \geqslant t\}\,d\lambda_1(t)$ при $p>0$
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$\int\limits_X \abs{f}^p\,d\mu = \int\limits_0^{+\infty}\mu X\{\abs{f}^p \geqslant t\}\,d\lambda_1(t) = \int\limits_0^{+\infty}\mu X\{\abs{f} \geqslant t^{1/p}\}\,d\lambda_1(t) = \int\limits_0^{+\infty}ps^{p-1} \mu X\{\abs{f} \geqslant s\}\,d\lambda_1(s)$
+	
+\end{proof}
+
+\begin{remark}
+	$\mu X\{\abs{f} \leqslant t\}$ -- функция распределения $f$.
+\end{remark}
