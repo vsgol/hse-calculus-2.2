@@ -66,6 +66,7 @@
 		
 		\item 
 		Линейность $\omega = \alpha \omega_1 + \beta \omega_2$
+
 		$\int\limits_\gamma \omega = \alpha\int\limits_\gamma \omega_1 + \beta\int\limits_\gamma \omega_2$
 		\begin{proof}
 			Надо все покоординатно сложить, а умножение на константу это умножение каждой координаты на константу
@@ -80,6 +81,10 @@
 		\begin{proof}\thmslashn
 			
 			$\abs{\int\limits_{\gamma} \omega\,ds} = \abs{\int\limits_{\gamma} \left\langle \vec{f}, \vec{\sigma} \right\rangle\,ds} \leqslant  \int\limits_{\gamma} \abs{\left\langle \vec{f}, \vec{\sigma} \right\rangle}\,ds$
+
+            $\abs{\left\langle \vec{f}, \vec{\sigma} \right\rangle} \le \norm{f} \norm{\sigma} \le \max \norm{f} \cdot 1$
+
+            по КБШ. $\sigma$ - единичный
 			
 		\end{proof}
 		

@@ -36,7 +36,7 @@
 			$\tau(c) = b,\;\; \tau(d) = a$, тогда
 
 			
-			$\int\limits_{\tilde{\gamma}} f \,ds = \int\limits_{c}^{d} f(\gamma(\tau(t))) \norm{(\gamma\circ\tau)'(u)} \,du = \int\limits_{c}^{d} f(\gamma(\tau(t))) (-\tau'(u)) \norm{\gamma'(\tau(u))} \,du \underset{t = \tau(u)}= -\int\limits_{b}^{a} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{\gamma} f \,ds$
+			$\int\limits_{\tilde{\gamma}} f \,ds = \int\limits_{c}^{d} f(\gamma(\tau(t))) \norm{(\gamma\circ\tau)'(u)} \,du = \int\limits_{c}^{d} f(\gamma(\tau(t))) (-\tau'(u)) \norm{\gamma'(\tau(u))} \,du \underset{t = \tau(u)}= -\int\limits_{b}^{a} f(\gamma(t)) \norm{\gamma'(t)} \,dt = -\int\limits_{\gamma} f \,ds$
 			
 
 		\end{proof}
@@ -55,7 +55,7 @@
 		
 		\begin{proof}\thmslashn
 			
-			$\gamma:[a,b \to \R^n \;\;\; c\in [a, b] \;\;\; \gamma_1 = \gamma\Big|_{[a, c]}\;\;\;\gamma_2 = \gamma\Big|_{[c, b]}$
+            $\gamma:[a,b] \to \R^n \;\;\; c\in [a, b] \;\;\; \gamma_1 = \gamma\Big|_{[a, c]}\;\;\;\gamma_2 = \gamma\Big|_{[c, b]}$
 			
 			$\int\limits_{\gamma} f\,ds = \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{a}^{c} + \int\limits_{c}^{b} = \int\limits_{\gamma_1} f\,ds + \int\limits_{\gamma_2} f\,ds $
 			
