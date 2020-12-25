@@ -1,1 +1,80 @@
-\Subsection{Билет 68: NAME}
+\Subsection{Билет 68: Частные производные $\frac{\partial}{\partial z}$ и $\frac{\partial}{\partial \bar{z}}$. Условия Коши-Римана. Функции с постоянной вещественной частью.}
+
+
+\begin{designations}
+	$\frac{\partial}{\partial z}:= \frac{1}{2}\left( \frac{\partial}{\partial x} - i\frac{\partial}{\partial y}\right) \quad \frac{\partial}{\partial \bar{z}}:= \frac{1}{2}\left( \frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)$
+\end{designations}
+
+\begin{remark}\thmslashn
+	
+	Если $f$ голоморфизм в точке $z_0$, то $\frac{\partial f}{\partial z}(z_0) = f'(z_0) \quad \frac{\partial f}{\partial \bar{z}} = 0$
+	
+\end{remark}
+
+Мотивация: 
+
+Мы дифференциал можем разложить в базис 2 способами. 
+
+$d_a f = \frac{\partial f}{\partial x}(a) \cdot \,dx + \frac{\partial f}{\partial y} (a) \cdot \,dy$
+
+$d_a f = \frac{\partial f}{\partial z}(a) \cdot \,dz + \frac{\partial f}{\partial \bar{z}} (a) \cdot \,d\bar{z}$
+
+Тогда коэффициенты во втором разложении это те формулы, из обозначений.
+
+\begin{theorem}[(условия Коши-Римана)]\thmslashn
+	
+	$f:\Omega \to \CC\;\; a\in \Omega \;\; f = g + ih$
+	
+	$f$ -- дифференцируема в точке $a$, как функция $\R^2 \to \R^2$. 
+	
+	Тогда следующие условия равносильны
+	
+	\begin{enumerate}
+		\item 
+		$f$ -- голомофна в точке $a$
+		
+		\item
+		$d_af$ -- комплексо линейный 
+		
+		$d_a = \begin{pmatrix}
+		\alpha & -\beta\\
+		\beta & \alpha
+		\end{pmatrix}$
+		
+		\item
+		$\frac{\partial f}{\partial \bar{z}} (a) = 0$
+		
+		\item
+		$\frac{\partial g}{\partial x} = \frac{\partial h}{\partial y}$ и $\frac{\partial g}{\partial y} = - \frac{\partial h}{\partial x}$ (условие Коши-Римана)
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item [1$\Leftrightarrow$ 2]
+		Это замечание 2;
+		
+		\item [2 $\Leftrightarrow$ 4]
+		Коэффициенты из матрицы $A$ из замечания 1
+		
+		\item[3 $\Leftrightarrow$ 4]
+		$2\frac{\partial f}{\partial \bar{z}} (a) =  \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} =  \frac{\partial g}{\partial x} + i\frac{\partial g}{\partial y} + i\frac{\partial h}{\partial x} - \frac{\partial h}{\partial y}$
+		
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$f:\Omega \to \CC$ голоморфна во всех точках и $\Re f = const$ Тогда $f = $ const
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$f = g  + ih \quad \frac{\partial g}{\partial x} = \frac{\partial h}{\partial y}$ и $\frac{\partial g}{\partial y} = - \frac{\partial h}{\partial x}$
+	
+	$g =$ const $ \Rightarrow \frac{\partial h}{\partial y} = 0$ и $ \frac{\partial h}{\partial x} = 0 \Rightarrow h = $ const $\Rightarrow f = $ const
+\end{proof}

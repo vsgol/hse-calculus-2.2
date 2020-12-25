@@ -1,1 +1,82 @@
-\Subsection{Билет 70: NAME}
+\Subsection{Билет 70: Следствие из теоремы Коши. Модификация теоремы Коши о дифференциальной форме $f(z) dz$}
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$f \in H(\Omega) \Rightarrow$ у любой точки есть окрестность, в которой существует $F$, т.ч. $F' = f$
+		
+		\item
+		$f \in H(\Omega)$ и $\gamma$ стягиваемый путь $\Rightarrow$ $\int\limits_{\gamma} f\,dz = 0$
+		
+	\end{enumerate}
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$f \in H(\Omega) \Rightarrow fdz$ локально точна $\Rightarrow$ у любой точки есть окрестность, в которой $\exists F \;\; \frac{\partial F}{\partial x} = f \;\;\frac{\partial F}{\partial y} = if \Rightarrow F$ голоморфизм и $F' = f$
+		
+		$f(z)dz = fdx + ifdy$
+		
+		\item
+		$f\in H(\Omega) \Rightarrow fdz$ локально точна  $\Rightarrow \int\limits_{\gamma} f\,dz = 0$ 
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$f\in C(\Omega)$ и $f \in H(\Omega \ \Delta)$, где $\Delta$ --прямая, параллельная вещественной оси
+	
+	Тогда $fdz$ локально точна
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Если наш круг, в котором мы считаем первообразную не касается $\Delta$, то есть Коши $\Rightarrow \Delta$ проходит через центр круга
+	 
+	 Мы хотим доказать, что интеграл по любому прямоугольнику, лежащему в круге, интеграл равен 0. Для прямоугольников не касающихся $\Delta$ опять все хорошо. А если прямоугольник пересекается $\Delta$, то мы можем рассмотреть, его как сумму двух, у которых одна из сторон это отрезок на $\Delta$. Осталось понять всё про последние прямоугольники 
+	 
+	 Рассматриваем прямоугольник $P$. От прямой $\Delta$ отступим на $\varepsilon$ и получим два новых прямоугольника $P_\varepsilon$ и $P - P_\varepsilon$.
+	 
+	 \begin{remark_author}
+	 	У Храброва $P_\varepsilon$ это прямоугольник, не касающийся $\Delta$ и по периметру схожий на $P$. У меня одна сторона $P_\varepsilon$ лежит на прямой $\Delta$
+	 \end{remark_author}
+	 
+	 $\int\limits_{P - P_\varepsilon}f \,dz = 0 \qquad \int\limits_{P}f \,dz - \int\limits_{P - P_\varepsilon}f \,dz = \int\limits_{P_\varepsilon}f\,dz$
+	 
+	 Рассмотрим отдельно интеграл по отрезкам, перпендикулярным $\Delta$.
+	  
+	 $f\in C(P) \Rightarrow f$ ограниченна $\Rightarrow$ $|f| \leqslant M \Rightarrow \abs{\int\limits_{\perp} f\,dz} \leqslant 2M\varepsilon$ 
+	 
+	 Теперь с отрезками, параллельными $\Delta$
+	 
+	 2 параллельные прямые, но обход в противоположных направлениях + одна на $\varepsilon y$ выше, давайте будем интегрироваться, по одному отрезку, а функцию заменим на разность. (пусть длина отрезка $C$)
+	 
+	 $\abs{\int\limits_{\parallel}f(z + \varepsilon iy) - f(x)\,dz}  \leqslant \max \abs{f(z + \varepsilon iy) - f(x)} C$
+	 
+	 $f\in C(P) \Rightarrow$ равномерно непрерывна $\Rightarrow \forall \delta > 0 \;\; \exists \varepsilon > 0$ если $|z-w| < \varepsilon \Rightarrow |f(z) - f(w)| < \delta$ 
+	
+	Значит мы оба интеграла можем сделать сколь угодно маленькими.
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$f\in C(\Omega)$ и $f$ голоморфна в $\Omega$ за исключением конечного множества точек (можно множества точек, не имеющие предельных)
+	
+	Тогда $fdz$ локально точна
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+
+	Если мы взяли точку, не из множества плохих, то можем найти окрестность, где их нет $\Rightarrow$ по Коши $fdz$ локально точна
+	
+	Если мы взяли точку из множества, то по прошлой теореме через эту вершину проведем $\Delta$ и опять все хорошо
+
+\end{proof}

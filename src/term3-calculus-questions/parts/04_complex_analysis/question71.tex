@@ -1,1 +1,87 @@
-\Subsection{Билет 71: NAME}
+\Subsection{Билет 71: Индекс кривой относительно точки. Интегральная формула Коши.}
+
+\begin{definition}[Индекс пути отностительно точки]\thmslashn
+	
+	$\gamma$ -- замкнутая кривая, не проходящая через $0$
+	
+	$r(t)$ и $\phi(t)$ -- ее задание в полярных координатах $r(t) > 0$
+	
+	$r, \phi : [a,b] \to \R$ непрерывны
+	
+	$\Ind(\gamma, 0) := \frac{\phi(b) - \phi(b)}{2\pi} \in \Z$
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	Это можно понимать немного по другому
+	
+	Если у нас есть замкнутый путь, не проходящий через точку $O$, то если мы проведем из этой точки луч, то каждое пересечение по часовой стрелке дает $-1$, а против -- $1$
+	
+\end{remark}
+
+\begin{theorem}\thmslashn
+	
+	$\int\limits_\gamma \frac{dz}{z} = 2\pi i \, \Ind(\gamma, 0)$, если $\gamma$ не проходит через $0$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$r(t)$ и $\phi(t)$ параметризация $\gamma$ в полярных координатах 
+	
+	$z = re^{i\phi}\;\; dz = d(r(t)e^{i\phi(t)}) = r'(t) e^{i\phi(t)} + r(t)i\phi'(t)e^{i\phi(t)}$
+
+	$\frac{dz}{z} = \frac{r'(t)}{r(t)} + i\phi'(t)$
+	
+	$\int\limits_\gamma \frac{dz}{z} = \int\limits_a^b  \frac{r'(t)}{r(t)} + i\phi'(t)\,dt = \ln r(t)\Big|_a^b + i\phi(t)\Big|_a^b = i (\phi(b) - \phi(a)) = 2\pi i \, \Ind(\gamma, 0)$
+	
+	$r(a) = r(b)$, т.к. кривая замкнута
+
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$\Ind(\gamma, a) = \frac{1}{2\pi i}\int\limits_\gamma \frac{dz}{z-a}$
+	
+\end{consequence}
+
+\begin{theorem}[(интегральная форсула Коши)]\thmslashn
+	
+	$f\in H(\Omega) \;\; a\in \Omega$
+	
+	$\gamma$ -- стягивающий путь, не проходящей через $a$. 
+	
+	Тогда $\frac{1}{2\pi i}\int\limits_\gamma \frac{f(z)}{z-a}\,dz = f(a)\cdot \Ind(\gamma, a)$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$
+	g(z) :=
+	\begin{cases}
+		\frac{f(z) - f(a)}{z-a}, & \text{при } z \not = a \\
+		f'(a), & \text{при } z = a
+	\end{cases}
+	$
+	
+	Тогда $g \in C(\Omega)$ и $g\in H(\Omega/\{a\})$
+	
+	$\Rightarrow g(z)dz$ -- локально точная форма $\Rightarrow \int\limits_\gamma g(z)\,dz = 0 \Rightarrow \int\limits_\gamma \frac{f(z) - f(a)}{z-a}\,dz = 0 = \int\limits_\gamma \frac{f(z)}{z-a}\,dz - f(a) \int\limits_\gamma \frac{dz}{z-a} = \int\limits_\gamma \frac{f(z)}{z-a}\,dz - f(a) \Ind(\gamma, a)$
+\end{proof}
+
+\begin{example}\thmslashn
+	
+	У нас есть круг, с границей $\gamma$. 
+	
+	$f$ голоморфна в окрестности круга
+	
+	$\int\limits_\gamma \frac{f(z)}{z-a}\,dz = 
+	\begin{cases}
+	0, & a \text{вне круга}\\
+	2\pi i f(a), & \text{внутри круга}
+	\end{cases}$
+	
+	В частности $f(a) = \int\limits_{|z-a| = r} \frac{f(z)}{z-a}\,dz$
+\end{example}
