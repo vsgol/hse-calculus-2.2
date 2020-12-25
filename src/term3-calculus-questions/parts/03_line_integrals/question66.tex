@@ -1,1 +1,63 @@
 \Subsection{Билет 66: Две теоремы об интегралах от локально точной формы по гомотопным путям. Точность форм в односвязных областях}
+
+\begin{theorem}\thmslashn
+	
+	$\gamma_0$ и $\gamma_1$ гомотопные пути с неподвижными концами 
+	
+	$\omega$ -- локально точная форма
+	
+	Тогда $\int\limits_{\gamma_0} \omega = \int\limits_{\gamma_1} \omega$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\gamma$ -- гомотопия между $\gamma_0$ и $\gamma_1\;\;\; \gamma:[a, b]\times[0, 1] \to \Omega$
+	
+	$f$ -- первообразная $\omega$ относительно гомотопии $\gamma$ 
+	
+	$\int\limits_{\gamma_0} \omega = f(b, 0) - f(a, 0) \quad \int\limits_{\gamma_1} \omega = f(b, 1) - f(a, 1)$
+	
+	Докажем, что $f(a, u)$ локально постоянна
+	
+	Рассмотрим точку $(a, u)$. Существует окрестность точки $\gamma(a, u)$ и первообразная $F$ в ней, т.ч. $f(t, v) = F(\gamma(t, v))$ при $(t, v)$ близки к $(a, u) \Rightarrow$
+	
+	$f(a, v) = F(\gamma(a, v))$ при $v$ близких к $u$ $\Rightarrow f(a, v) = F(\gamma_0(a))$ при $v$ близких к $u \Rightarrow$ 
+	
+	$f(a, u)$ -- константа, аналогично $f(b, u)$ -- константа $\Rightarrow$ $f(b, 0) - f(a, 0) = f(b, 1) - f(a, 1)$
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$\gamma_0$ стягиваемый путь
+	
+	$\omega$ -- локально точная форма
+	
+	Тогда $\int\limits_{\gamma_0} \omega = 0$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\gamma$ -- гомотопия между $\gamma : [a, b]\times [0, 1] \to \Omega$
+	
+	$f$ -- первообразная относительно $\gamma$ 
+	
+	$\int\limits_{\gamma_0} \omega = f(b, 0) - f(a, 0) \quad 0 =  \int\limits_{\gamma_1} \omega = f(b, 1) - f(a, 1)$
+	
+	Докажем, что $f(b, u) - f(a, u)$ локально постоянна
+	
+	Возьмем $(a, u)$. В окрестности $\gamma(a, u) = \gamma(b, u)$ существует первообразная $F$, т.ч. $f(t, v) = F(\gamma(t, v))$ при $(t, v)$ близки к $(a, u) \Rightarrow f(a,v) = F(\gamma(a, v))$ при $v$ близких к $u$ 
+	
+	Возьмем $(b, u)$. В окрестности $\gamma(b, u) = \gamma(a, u)$ существует первообразная $\tilde{F}$, т.ч. $f(t, v) = \tilde{F}(\gamma(t, v))$ при $(t, v)$ близки к $(a, u) \Rightarrow f(b,v) = \tilde{F}(\gamma(a, v))$ при $v$ близких к $u$ 
+	
+	$\Rightarrow f(b, v) - f(a, v)$ постоянна при $v$ близких к $u$
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+	
+	$\Omega$ -- односвязная область, $\omega$ -- локально точная форма $\Rightarrow$ $\omega$ -- точная форма
+	
+\end{theorem}

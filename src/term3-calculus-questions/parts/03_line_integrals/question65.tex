@@ -4,7 +4,9 @@
 	
 	$\gamma_0, \gamma_1:[a,b]\to \Omega \;\;\; \gamma_0(a) = \gamma_1(a)$ и $\gamma_0(b) = \gamma_1(b)$
 	
-	Если существует $\gamma:[a, b] \times [0, 1] \to \Omega$ непрерывное в т.ч. $\gamma(t, 0) = \gamma_0(t), \gamma(t, 1) = \gamma_1(t), \;\;\gamma(a, u) = \gamma_0(a)$ и $\gamma(b, u) = \gamma_0(b)$
+	Если существует $\gamma:[a, b] \times [0, 1] \to \Omega$ непрерывное и
+	
+	$\gamma(t, 0) = \gamma_0(t), \gamma(t, 1) = \gamma_1(t), \;\;\gamma(a, u) = \gamma_0(a)$ и $\gamma(b, u) = \gamma_0(b)$
 	
 	$\gamma_u(t):= \gamma(t, u)$ -- путь, соединяющий точки $\gamma_0(a)$ и $\gamma_0(b)$
 	
@@ -14,7 +16,9 @@
 	
 	$\gamma_0, \gamma_1:[a,b]\to \Omega \;\;\; \gamma_0(a) = \gamma_1(a)$ и $\gamma_0(b) = \gamma_1(b)$
 	
-	Если существует $\gamma:[a, b] \times [0, 1] \to \Omega$ непрерывна и $\gamma(t, 0) = \gamma_0(t), \gamma(t, 1) = \gamma_1(t), \;\;\gamma(a, u) = \gamma(b, u)$
+	Если существует $\gamma:[a, b] \times [0, 1] \to \Omega$ непрерывна и
+	
+	$\gamma(t, 0) = \gamma_0(t), \gamma(t, 1) = \gamma_1(t), \;\;\gamma(a, u) = \gamma(b, u)$
 	
 \end{definition}
 
@@ -22,7 +26,7 @@
 	Гомотопные замкнутые пути могут не пересекаться
 \end{remark_author}
 
-Несложно понять, что это отношение эквивалентности.
+Несложно понять, что гомотопия -- отношение эквивалентности.
 
 \begin{definition}
 	Стягиваемый путь -- замкнутый путь, гомотопный точке.
@@ -64,12 +68,60 @@
 
 \begin{exerc}\thmslashn
 	
-	$\Omega$ -- односвязна, $f:\mathbf{T} \to \Omega$ непрерывная
+	$\Omega$ -- односвязна, $f:\mathbb{T} \to \Omega$ непрерывная
 	
-	$\mathbf{T} = \{x^2 + y^2 = 1\}$
+	$\mathbb{T} = \{x^2 + y^2 = 1\}$
 	
-	$\bar{\mathbf{D}} = \{x^2 + y^2 \leqslant 1\}$
+	$\bar{\mathbb{D}} = \{x^2 + y^2 \leqslant 1\}$
 	
-	Тогда $f$ можно продолжить до $f:\bar{\mathbf{D}\to \Omega}$ с сохранением непрерывности
+	Тогда $f$ можно продолжить до $f:\bar{\mathbb{D}}\to \Omega$ с сохранением непрерывности
 	
 \end{exerc}
+
+\begin{definition}\thmslashn
+	
+	$\gamma:[a,b] \times[c, d] \to \Omega$ непрерывно, $\omega$ локально точная форма
+	
+	$f:[a, b]\times[c, d] \to \R$ первообразная $\omega$ относительно $\gamma$, если $f$ непрерывна и $\forall$ точки $(\tau, \rho)$ в окрестности $\gamma(\tau, \rho)$  существует такая первообразная $F$, что $f(t, u) = F(\gamma(t, u))$ при $(t, u)$ близких к $(\tau, \rho)$
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	При фиксированном $u = u_0\;\; f(t, u_0)$ -- перообразная вдоль пути $\gamma(t, u_0)$ 
+
+\end{remark}
+
+\begin{theorem}\thmslashn
+
+	Первообразная относительно отображения существует и единствена с точностью до константы
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Покроем $\gamma([a, b]\times[c, d])$такими шариками, что в каждом есть первообразная $\omega$
+	
+	Воьмум $r > 0$ из леммы Лебега. 
+	
+	$\gamma$ задана на компакте и непрерывна $\Rightarrow$ равномерно непрерывна на $[a, b]\times[c, d] \Rightarrow$ мы можем выбрать $\varepsilon$ т.ч. растояние между образами точек $< r$
+	
+	Нарежем прямоугольник на маленькие кусочки диаметра $< \varepsilon$ 
+		
+	$\gamma([t_{i-1}, t_i]\times[u_{j-1}, u_j])$ целиком попадает в $U_{ij}$, где есть первообразная $F_{ij}$
+	
+	$f$ на $[t_{0}, t_1]\times[u_{0}, u_1] \;\; f(t, u) = F_{1, 1}(\gamma(t, u))$ 
+	
+	$f$ на $[t_{1}, t_2]\times[u_{1}, u_2] \;\; f(t, u) = F_{1, 1}(\gamma(t, u))$ 
+	
+	$U_{11} \cap U_{21} \supset {t_1} \times[u_0, u-1] \Rightarrow F_{11}$ и $F_{21}$ первообразные в $U_{11} \cap U_{21} \Rightarrow$ они отличаются на константу и мы можем подправить $F_{21}$ $\Rightarrow$ мы можем построить первообразную для всей строчки.
+	
+	Аналогично построим $f_j$ на $[a, b]\times[u_{j-1}, u_j]$
+	
+	$f_j(t, u_j)$ и $f_{j+1}(t, u_j)$ -- первообразная вдоль пути $\gamma(t, u_j) \Rightarrow$ отличаются на константу
+	
+	Подправим $f_{j+1}$ так, чтобы константа была равна 0 $\Rightarrow$ мы соединили две строки, везде все хорошо, кроме места склейки.
+	
+	Проверим в $(t, u_j)$. В окрестности $\gamma(t, u_j)$ есть первообразная $F$, т.ч. $f_j(t, u) = F(\gamma(t, u))$ и первообразная $\tilde{F}$, т.ч. $f_{j+1}(t, u) = \tilde{F}(\gamma(t, u))$, но обе это первообразные равны, тк при $u = u_j$ левые части равны
+	
+\end{proof}
