@@ -1,1 +1,125 @@
-\Subsection{Билет 61: NAME}
+\Subsection{Билет 61: Первообразная формы. Аналог формулы
+	Ньютона–Лейбница. Лемма о существовании ломаной,
+	соединяющей точки области. Необходимые и достаточные условия существования первообразной.}
+
+\begin{definition}\thmslashn
+	
+	$\Omega \subset \R^n$ -- область, если $\Omega$ -- открытое и линейно связное (любые две точки можем соединить) 
+	
+\end{definition}
+
+
+\begin{definition}\thmslashn
+	
+	Первообразная дифф. формы $\omega$ в области $\Omega$ -- функция $F: \Omega \to \R$, т.ч. $dF = \omega$
+	
+\end{definition}
+
+Напоминание: $dF = \frac{\partial F}{\partial x_1} \cdot dx_1 + \frac{\partial F}{\partial x_2} \cdot dx_2 + \ldots + \frac{\partial F}{\partial x_n} \cdot dx_n = \omega =  f_1 dx_1 + f_2dx_2 + \ldots + f_ndx_n$
+
+Т.е. $\frac{\partial F}{\partial x_k} = f_k$
+
+\begin{theorem}[Аналог формулы Ньютона–Лейбница]\thmslashn
+	
+	$F$ -- перообразная $\omega$ в $\Omega$, $\gamma$ -- кривая в $\Omega$, соединяющая точки $a$ и $b$. Тогда $\int\limits_{\gamma}\omega = F(b) - F(a)$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$\gamma:[\alpha, \beta]\to\Omega\;\; \gamma(\alpha) = a, \;\gamma(\beta) = b$
+	
+	$\int\limits_\gamma \omega := \int\limits_\alpha^\beta  \sum\limits_{k=1}^n f_k(\gamma(t)) \cdot \gamma_k'(t)\,dt = \int\limits_\alpha^\beta  \sum\limits_{k=1}^n \frac{\partial F}{\partial x_k} (\gamma(t)) \cdot \gamma_k'(t)\,dt = \int\limits_\alpha^\beta \left( F\circ \gamma \right)'(t)\,dt = $
+	
+	$= F\circ \gamma \Big|_\alpha^\beta = F(\gamma(\beta)) - F(\gamma(\alpha)) = F(b) - F(a)$
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+
+	\begin{enumerate}
+		
+		\item
+		Если у $\omega$ есть первообразная, то интеграл зависит только от концов пути
+		
+		\item
+		Первообразные отличаются друг от друга на константу
+		
+		\begin{proof}\thmslashn
+			
+			$F_1$ и $F_2$ отличаются друг от друга на константу
+			
+			$\int\limits_{\gamma} \omega = F_1(b) - F_1(a) = F_2(b) - F_2(a) \Rightarrow F_2(b) = F_1(b) + (F_2(a) - F_1(a))$
+			
+		\end{proof}
+	
+	\end{enumerate}
+
+\end{consequence}
+
+\begin{lemma}
+	
+	$\Omega$ -- область. Между любыми двумя точками из $\Omega$ найдется ломаная из $\Omega$ со звеньями, параллельными осям координат
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+	
+	$a, b \in \Omega$ возьмем путь, соединяющий эти точки
+	
+	В каждой точке пути берем шарик, целиком содержащийся в $\Omega$. Выберем конечное покрытие. (множество компактно, шарики покрывают путь и они открыты)
+	
+	Шарики мы можем упорядочить, тк у каждого шарика есть центр, расположенный на пути $\Rightarrow$ можем упорядочить. Теперь в каждом шарике строим ломанные от точки, входящей в пересечение с предыдущим шариком, до центра шарика и от центра, до точки из пересечения со следующим шариком. За конечное число шагов мы построим ломаную 
+	
+\end{proof}
+
+\begin{theorem}\thmslashn
+
+	$\Omega$ -- область, $f_1, f_2, \ldots, f_n : \Omega\to \R$ непрерывны
+	
+	Следущие условия равносильны 
+	
+	\begin{enumerate}
+		\item 
+		$\omega =  f_1 dx_1 + f_2dx_2 + \ldots + f_ndx_n$ имеет первообразную в $\Omega$
+		
+		\item
+		$\int\limits_\gamma \omega = 0$ для любого замкнутого контура
+		
+		\item
+		$\int\limits_\gamma \omega = 0$ для любой замкнутой ломаной со звеньями, параллельными осям координат
+		
+	\end{enumerate} 
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item[1)$\Rightarrow$2)] 
+		$F$ -- первообразная, $\gamma$ -- замкнутая кривая, проходящая через точку $a$, то $\int\limits_\gamma \omega = F(a) - F(a) = 0$
+		
+		\item[2)$\Rightarrow$3)]
+		Это частный случай
+		
+		
+		\item[3)$\Rightarrow$1)]
+		Зафиксируем точку $a \in \Omega$ и $F(x) := \int\limits_\gamma \omega$, где $\gamma$ -- ломанная со звеньями, параллельными осям координат, соединяющая точки $a$ и $x$. Проверим корректность определения
+		
+		Возьмем 2 ломанные от точки $a$ до $x$ $\gamma_1$ и $\gamma_2$. Если мы пройдем по $\gamma_1$, а затем вернемся по $\gamma_2$, то это будет замкнутая ломаная $\Rightarrow$ интеграл равен 0. $\Rightarrow$ также $\int\limits_{\gamma_1} \omega = \int\limits_{\gamma_2} \omega$. Значит значение не зависит от прямой, по которой мы двигаемся
+		
+		Проверим, что $F$ -- перообразная. Докажем, что $\frac{\partial F}{\partial x_i} = f_i$
+		
+		Чтобы найти производную по первой координате нам надо сдвинуться только по первой координате от $x_1$ до $x_2$ и разделить на перемещение.
+		
+		$\frac{\partial F}{\partial x_1} = \lim\limits_{h\to 0} \frac{F(x_1+h, x_2, \ldots, x_n) - F(x_1, x_2, \ldots, x_n)}{h} $
+		
+		Проведем ломаную из $a$ так, чтобы путь от $a$ до $x_2$ проходил через $x_1$ и между $x_1$и $x_2$ была прямая $I$.
+		
+		$\lim\limits_{h\to 0} \frac{F(x_1+h, x_2, \ldots, x_n) - F(x_1, x_2, \ldots, x_n)}{h} = \lim\limits_{\to 0} \frac{1}{h} \int\limits_I \omega = \lim\limits_{\to 0} \frac{1}{h} \int\limits_0^h f_1(x_1+t, x_2, \ldots, x_n) \,dt = f_1(x_1, x_2, \ldots, x_n)$
+		
+		В $\omega'$ все частные производные равны 0, кроме $\omega_1' = f_1$ 
+		
+	\end{enumerate}
+
+\end{proof}

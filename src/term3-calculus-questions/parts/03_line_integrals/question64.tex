@@ -1,1 +1,67 @@
-\Subsection{Билет 64: NAME}
+\Subsection{Билет 64: Первообразная формы вдоль пути. Следствие}
+
+\begin{definition}\thmslashn
+	
+	$\gamma:[a, b] \to \Omega\;\; \omega$ -- локально точная форма в $\Omega$
+	
+	$f:[a, b] \to \R$ -- первообразная формы $\omega$ вдоль пути $\gamma$, если $\forall \tau \in [a, b]$ в некоторой окрестности точки $\gamma(\tau)$ существует первообразная $F$ для $\omega$, т.ч. $F(\gamma(t)) = f(t)$ при $t$ близких к $\tau$
+	
+\end{definition}
+
+\begin{lemma}
+	$f:[a, b] \to \R$ локально постоянна $\Rightarrow f$ -- константа
+\end{lemma}
+
+\begin{theorem}\thmslashn
+	
+	Первообразная форма вдоль пути существует и единственна с точностью до константы
+	
+\end{theorem}
+
+\begin{proof}
+	
+	Единственность.
+	
+	 $f_1$ и $f_2$ -- первообразные вдоль пути $\gamma\;\; f = f_1 - f_2$ 
+	
+	$f$ локальна постоянна. Берем $\tau$, в ее окрестности  $f(t) = f_1(t) - f_2(t) = F_1(\gamma(t)) - F_2(\gamma(t))$
+	
+	Существование. 
+	
+	Есть покрытие $\gamma$ окрестности $U_\tau$, в которых есть первообразная $\omega$
+	
+	Выберем конечное подпокрытие $U_{\tau_1}, U_{\tau_2}, \ldots U_{\tau_l}$. По нему возьмем $r>0$ из леммы Лебега. Посмотрим на $\gamma[a, b]$ и нарежем ее на кусочки длины $<r$. Нарезка $a = t_0 < t_2 < \ldots < t_m = b$
+	
+	Перенумеруем $U$, т.ч. $\gamma[t_{i-1}, t_i] \subset U_i$. Пусть $F_i$ -- первообразная в $U_i$. 
+	
+	Для $f$ на $[t_0, t_1]$ возьмем $F_1(\gamma(t))$
+	
+	Рассмотрим $U_1 \cap U_2 \ni \gamma(t_1)$ -- непустое открытое множество, в нем есть первообразный $F_1$ и $F_2$
+	
+	$\Rightarrow$ они отличаются на константу $\Rightarrow$ давайте исправим $F_2$ так, чтобы константа была равна 0.
+	
+	$f$ на $[t_1, t_2]$ равна $F_2(\gamma(t))$ и тд
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$\gamma$ -- кусочно-гладкий путь, $f$ -- первообразная $\omega$ вдоль $\gamma$
+	
+	Тогда $\int\limits_{\gamma} \omega = f(b) - f(a)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$f(t)$ на $[t_{i-1}, t_i]$ это $F_i(\gamma(t))$
+	
+	$\int\limits_{\gamma} \omega = \sum\limits_{i = 1}^m \int\limits_{\gamma|_{[t_{i-1}, t_i]}} \omega = \sum\limits_{i = 1}^m (F_i(\gamma(t_i)) - F_i(\gamma(t_{i-1}))) = \sum\limits_{i = 1}^m (F_i(\gamma(t_i)) - F_{i-1}(\gamma(t_{i-1}))) = F_m(\gamma(b)) - F_1(\gamma(a)) = f(b) - f(a)$
+	
+\end{proof}
+
+\begin{remark}\thmslashn
+
+	С помощью равенства $\int\limits_{\gamma} \omega = f(b) - f(a)$  можно определить интеграл от локально точной формы по негладкой кривой
+
+\end{remark}

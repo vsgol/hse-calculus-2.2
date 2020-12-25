@@ -1,1 +1,81 @@
-\Subsection{Билет 63: NAME}
+\Subsection{Билет 63: Точные, локально точные и замкнутые формы. Связь между локальной точностью и замкнутостью. Лемма Пуанкаре (доказательство для $\R^2$. Пример, показывающий, что из замкнутости не следует точность. Следствия.}
+
+\begin{definition}\thmslashn
+	
+	Форма называется точной, если у нее есть перообразная
+	
+	Форма локально точная, если у каждой точки найдется окр-ть, в которой есть своя первообразная
+	
+	Форма $\omega = f_1 dx_1 + f_2dx_2 + \ldots + f_ndx_n$ замкнутая, если $\frac{\partial f_i}{\partial x_k} = \frac{\partial f_k}{\partial x_i} \;\;\forall i, k$
+	
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Точность $\Rightarrow$ локальная точность
+		
+		\item
+		Интеграл от точной формы о замкнутому контуру $ = 0$
+		
+	\end{enumerate}
+	
+\end{remark}
+
+\begin{theorem}\thmslashn
+
+	Если коэфф. формы непрерывно дифференцируем, то из локальной точности следует замкнутость 
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Возьмем точку $x$ и ее окрестность $U$, в которой $\omega = dF$
+	
+	$\Rightarrow f_k = \frac{\partial F}{\partial x_k} \Rightarrow \frac{\partial f_k}{\partial x_i} = \frac{\partial^2 F}{\partial x_i\partial x_k} = \frac{\partial^2 F}{\partial x_k\partial x_i} = \frac{\partial f_i}{\partial x_k} \Rightarrow  \omega$  -- замкнута
+	
+\end{proof}
+
+\begin{lemma}[Пуанкаре]\thmslashn
+	
+	$\Omega$ -- выпуклая область и коэфф. $\omega$ непрерывно дифференцируемы. Тогда если $\omega$ замкнута, то $\omega$ точная
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+	
+	Только для $\R^2$. Надо доказать, что из замкнутости следует существование первообразной. Для этого достаточно проверить, что $\int\limits_\gamma \omega = 0$ для любой замкнутой кривой $\gamma$
+	
+	$\int\limits_\gamma P\,dx + Q\,dy = \int\limits_\Omega \left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) \,dx\,dy = 0$
+	
+	$ \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = 0$ по замкнутости
+	
+	Если выпуклости не будет, то на области с дыркой будут проблемы (формула $ \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}$ не определена в дырке)
+	
+\end{proof}
+
+\begin{example}\thmslashn
+	
+	$\omega = \frac{x \,dy - y\,dx}{x^2 + y^2} = d\left( \arctg \frac{x}{y} \right)$
+	
+	$\frac{\partial \left(\frac{x}{x^2+y^2}\right)}{\partial x} = \frac{\partial \left(-\frac{y}{x^2+y^2}\right)}{\partial y}$ Замкнутая, но она не является точной
+	
+	$\int\limits_{\text{един.\\окр.}} \omega = \int\limits_0^{2\pi} \cos t \,d\sin t - \sin t \,d\cos t = \int\limits_0^{2\pi} \,dt = 2\pi$
+	
+	Проблема в точке $(0, 0)$
+\end{example}
+
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Замкнутая форма с непрерывно дифференцируемыми коэффициентами в любом открытом шаре имеет первообразную
+		
+		\item
+		Замкнутая форма с непрерывно дифференцируемыми коэффициентами локально точна
+	
+	\end{enumerate}
+	
+\end{consequence}
