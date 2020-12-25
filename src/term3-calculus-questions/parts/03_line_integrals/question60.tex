@@ -1,1 +1,94 @@
-\Subsection{Билет 60: NAME}
+\Subsection{Билет 60: Дифференциальная форма. Определение и простейшие свойства интеграла от формы по кривой.}
+
+\begin{definition}\thmslashn
+	
+	Дифференциальная форма 1-го порядка
+	
+	$\omega = f_1 dx_1 + f_2dx_2 + \ldots + f_ndx_n$
+	
+\end{definition}
+
+
+\begin{definition}\thmslashn
+	
+	Криволинейный интеграл $\RomanNumeral{2}$ рода (интеграл от дифф. формы)
+	
+	$\gamma$ -- гладкая кривая $\gamma: [a, b] \to \R^n$
+	
+	$\int\limits_\gamma \omega := \int\limits_a^b \sum\limits_{k=1}^n f_k(\gamma(t)) \cdot \gamma_k'(t)\,dt$
+	
+\end{definition}
+
+\begin{properties}\thmslashn
+	
+	\begin{enumerate}[1.]
+		\item 
+		Не зависит от параметризации
+		
+		\begin{proof}\thmslashn
+			
+			$\tilde{\gamma} = \gamma \circ \tau$, где $\tau: [c, d] \to [a, b]$, строго возрастает, гладкое $\tau(c) = a, \;\;\tau(d) = b$
+			
+			$\int\limits_{\tilde{\gamma}} \omega \,ds = \int\limits_{c}^{d} 
+			\sum\limits_{k=1}^n f_k(\tilde{\gamma}(u)) \cdot \tilde{\gamma_k}'(u)\,du = \int\limits_{c}^{d} 
+			\sum\limits_{k=1}^n f_k(\gamma(\tau(u)) \cdot \gamma_k'(\tau(u))\tau'(u)\,du \underset{t = \tau(u)}=$
+			
+			$= \int\limits_a^b \sum\limits_{k=1}^n f_k(\gamma(t)) \cdot \gamma_k'(t)\,dt = \int\limits_\gamma \omega$
+			
+			$\tilde{\gamma_k}'(u) = (\gamma_k\circ \tau)'(u) = \gamma_k'(\tau(u))\cdot \tau'(u)$	
+			
+		\end{proof}
+		
+		\item
+		Смена направления меняет знак интеграла 
+		
+		\begin{proof}\thmslashn
+			
+			$\tau(c) = b,\;\; \tau(d) = a$, тогда поменяются концы интегрирования местами и знак изменится
+			
+		\end{proof}
+		
+		\item
+		$\vec{f} = (f_1, f_2, \ldots, f_n)\;\; \vec{\sigma}$ -- единичный касательный вектор
+		
+		$\int\limits_{\gamma} \omega = \int\limits_{\gamma} \left\langle \vec{f}, \vec{\sigma} \right\rangle\,ds $
+		
+		\begin{proof}\thmslashn
+			
+			$ \int\limits_{\gamma} \omega = \int\limits_a^b \sum\limits_{k=1}^n f_k(\gamma(t)) \cdot \gamma_k'(t)\,dt = \int\limits_a^b \left\langle \vec{f}(\gamma(t)), \gamma'(t) \right\rangle\,dt = \int\limits_a^b \left\langle \vec{f}(\gamma(t)), \vec{\sigma}(\gamma(t)) \norm{\gamma'(t)} \right\rangle\,dt =$
+			
+			$= \int\limits_a^b \left\langle \vec{f}(\gamma(t)), \vec{\sigma}(\gamma(t)) \right\rangle \norm{\gamma'(t)}\,dt = \int\limits_{\gamma} \left\langle \vec{f}, \vec{\sigma} \right\rangle\,ds$
+			
+			$\vec{\sigma}(\gamma(t)) = \frac{\gamma'(t)}{\norm{\gamma'(t)}}$ (нам нужна касательная к кривой $\Rightarrow$ это производная, а затем надо его отнормировать)
+		\end{proof}
+		
+		\item 
+		Линейность $\omega = \alpha \omega_1 + \beta \omega_2$
+		$\int\limits_\gamma \omega = \alpha\int\limits_\gamma \omega_1 + \beta\int\limits_\gamma \omega_2$
+		\begin{proof}
+			Надо все покоординатно сложить, а умножение на константу это умножение каждой координаты на константу
+		\end{proof}
+		
+		\item
+		Аддитивность по кривой $ \int\limits_{\gamma} \omega\,ds = \int\limits_{\gamma_1} \omega\,ds + \int\limits_{\gamma_2} \omega\,ds$, где $\gamma_1 = \gamma\Big|_{[a, c]}\;\;\;\gamma_2 = \gamma\Big|_{[c, b]}$
+		
+		\item
+		$\abs{\int\limits_{\gamma} \omega\,ds} \leqslant \int\limits_{\gamma}\norm{\vec{f}}\,ds \leqslant l(\gamma) \cdot \max\norm{\vec{f}}$
+		
+		\begin{proof}\thmslashn
+			
+			$\abs{\int\limits_{\gamma} \omega\,ds} = \abs{\int\limits_{\gamma} \left\langle \vec{f}, \vec{\sigma} \right\rangle\,ds} \leqslant  \int\limits_{\gamma} \abs{\left\langle \vec{f}, \vec{\sigma} \right\rangle}\,ds$
+			
+		\end{proof}
+		
+	\end{enumerate}
+	
+\end{properties}
+
+\begin{exerc}\thmslashn
+	
+	Интегральная сумма $\gamma:[a, b] \to \R^n$
+	
+	$\int\limits_{\gamma} \omega\,ds = \lim \sum\limits_{k=1}^m\sum\limits_{j=1}^n f_j(\gamma(\xi_k))(\gamma_j(t_k) - \gamma_j(t_{k-1}))$
+	
+\end{exerc}

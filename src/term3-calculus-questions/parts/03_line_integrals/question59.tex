@@ -1,1 +1,98 @@
-\Subsection{Билет 59: NAME}
+\Subsection{Билет 59: Определение и свойства интеграла по длине дуги (равенства и неравенства).}
+
+\begin{definition}\thmslashn
+	
+	Интеграл $\RomanNumeral{1}$ рода (интеграл по длине дуги)
+	
+	$\gamma$ -- гладкая кривая в $\R^n$
+	
+	$\int\limits_{\gamma} f \,ds := \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt$
+	
+	$\gamma: [a, b] \to R^{n}$
+	
+\end{definition}
+
+\begin{properties}\thmslashn
+	
+	\begin{enumerate}[1.]
+		\item 
+		Не зависит от параметризации
+		
+		\begin{proof}\thmslashn
+			
+			$\tilde{\gamma} = \gamma \circ \tau$, где $\tau: [c, d] \to [a, b]$, строго возрастает, гладкое $\tau(c) = a, \;\;\tau(d) = b$
+			
+			$\int\limits_{\tilde{\gamma}} f \,ds = \int\limits_{c}^{d} f(\gamma(\tau(t))) \norm{(\gamma\circ\tau)'(u)} \,du = \int\limits_{c}^{d} f(\gamma(\tau(t))) \tau'(u) \norm{\gamma'(\tau(u))} \,du \underset{t = \tau(u)}= \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{\gamma} f \,ds$
+			
+			$(\gamma\circ \tau)'(u) = \gamma'(\tau(u))\cdot \tau'(u)$	
+			
+		\end{proof}
+		
+		\item
+		Интеграл не зависит от направления 
+		
+		\begin{proof}\thmslashn
+
+			$\tau(c) = b,\;\; \tau(d) = a$, тогда
+
+			
+			$\int\limits_{\tilde{\gamma}} f \,ds = \int\limits_{c}^{d} f(\gamma(\tau(t))) \norm{(\gamma\circ\tau)'(u)} \,du = \int\limits_{c}^{d} f(\gamma(\tau(t))) (-\tau'(u)) \norm{\gamma'(\tau(u))} \,du \underset{t = \tau(u)}= -\int\limits_{b}^{a} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{\gamma} f \,ds$
+			
+
+		\end{proof}
+	
+		\item
+		Линейность интеграла $\int\limits_{\gamma} (\alpha f + \beta g) \,ds = \alpha \int\limits_{\gamma} f \,ds + \beta \int\limits_{\gamma} g \,ds$
+		
+		\begin{proof}\thmslashn
+			
+			$\int\limits_{\gamma} (\alpha f + \beta g) \,ds = \int\limits_{a}^{b} (\alpha f(\gamma(t)) + \beta g(\gamma(t)) ) \norm{\gamma'(t)} \,dt = \alpha \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt + \beta \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \alpha \int\limits_{\gamma} f \,ds + \beta \int\limits_{\gamma} g \,ds$
+	
+		\end{proof}
+
+		\item 
+		Аддитивность по кривой $\gamma = \gamma_1 \sqcup \gamma_2 \;\; \int\limits_{\gamma} f\,ds = \int\limits_{\gamma_1} f\,ds + \int\limits_{\gamma_2} f\,ds$
+		
+		\begin{proof}\thmslashn
+			
+			$\gamma:[a,b \to \R^n \;\;\; c\in [a, b] \;\;\; \gamma_1 = \gamma\Big|_{[a, c]}\;\;\;\gamma_2 = \gamma\Big|_{[c, b]}$
+			
+			$\int\limits_{\gamma} f\,ds = \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{a}^{c} + \int\limits_{c}^{b} = \int\limits_{\gamma_1} f\,ds + \int\limits_{\gamma_2} f\,ds $
+			
+		\end{proof}
+
+		\item
+		$\int\limits_{\gamma}\,ds = l(\gamma)$ -- длина кривой
+		
+		\item
+		Если $f \leqslant g$ на $\gamma$, то $\int\limits_{\gamma} f\,ds \leqslant \int\limits_{\gamma}g\,ds$
+		
+		
+		\begin{proof}\thmslashn
+			
+			$\int\limits_{\gamma} f\,ds = \int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt \leqslant \int\limits_{a}^{b} g(\gamma(t)) \norm{\gamma'(t)} \,dt = \int\limits_{\gamma} g\,ds$
+			
+		\end{proof}
+	
+		\item
+		$\abs{\int\limits_{\gamma} f\,ds} \leqslant \int\limits_{\gamma}\abs{f}\,ds \leqslant l(\gamma) \cdot \max\abs{f}$
+	
+		\begin{proof}\thmslashn
+			
+			$\abs{\int\limits_{\gamma} f\,ds} = \abs{\int\limits_{a}^{b} f(\gamma(t)) \norm{\gamma'(t)} \,dt} \leqslant \int\limits_{a}^{b} \abs{f(\gamma(t))} \norm{\gamma'(t)} \,dt \leqslant \max\abs{f}\cdot \int\limits_{a}^{b} \norm{\gamma'(t)}\,dt = l(\gamma) \cdot \max\abs{f}$
+			
+		\end{proof}
+		
+	\end{enumerate}
+
+\end{properties}
+
+\begin{remark}
+	Можно определить на кусочно-гладких кривых и все свойства сохраняются.
+\end{remark}
+
+\begin{exerc}\thmslashn
+	
+	$\int\limits_{\gamma} f \,ds = \lim \sum\limits_{k=1}^n f(\gamma(\xi_k)) \cdot l(\gamma\Big|_{[t_{k-1}, t_k]})$
+	
+\end{exerc}
