@@ -1,1 +1,97 @@
-\Subsection{Билет 74: NAME}
+\Subsection{Билет 74: Неравенство Коши. Целые функции. Примеры. Теорема Лиувилля. Основная теорема алгебры.}
+
+\begin{theorem}[Неравенство Коши]\thmslashn
+	
+	$f \in H(R \mathbb{D})\;\;r < R\;\; f(z) =  \sum\limits_{n = 0}^{\infty} a_n z^n$ 
+	
+	Тогда $|a_n| \leqslant \frac{M(r)}{r^n}$, где $M(r) = \max\limits_{|z| = r} |f(z)|$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	 $|a_n| =  \abs{\frac{1}{2\pi i}\int\limits_{|\xi| = r} \frac{f(\xi)}{\xi^{n+1}}} \leqslant \frac{1}{2\pi} \cdot 2\pi r \cdot \max\limits_{|\xi| = r}\abs{\frac{f(\xi)}{\xi^{n+1}}} = r \max\limits_{|\xi| = r}\abs{f(\xi)} \cdot \frac{1}{r^{n+1}} = \frac{M(r)}{r^n}$
+	
+\end{proof}
+
+\begin{definition}
+		Целая функция $f:\CC \to \CC$ и $f\in H(\CC)$
+\end{definition}
+
+\begin{example}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$e^{z}$
+		\item
+		Многочлены
+		\item
+		$\sin z$ и $\cos z$, тк $\sin = \frac{e^{iz} - e^{-iz}}{zi};\;\;\; \cos = \frac{e^{iz} + e^{-iz}}{z}$
+		\item
+		$\ch z = \frac{e^{z} + e^{-z}}{z};\;\;\; \sh z = \frac{e^{z} - e^{-z}}{z}$
+	\end{enumerate}
+	
+\end{example}
+
+\begin{theorem}[Лиувилля]\thmslashn
+	
+	$f$ -- целая и ограниченная функция $\Rightarrow$ $f$ -- константа
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$f(z) = \sum\limits_{n = 0}^{\infty} a_n z^n \qquad |f(z)| \leqslant M$
+	
+	По неравенству Коши $|a_n| \leqslant \frac{M(r)}{r^n} \leqslant \frac{M}{r^n} \to 0 \Rightarrow a_n = 0$ при $n\not = 0 \Rightarrow f$ -- постоянная
+	
+\end{proof}
+
+\begin{theorem}[Основная теорема алгебра]\thmslashn
+	
+	$P$ -- многочлен, $P \not=$ const $\Rightarrow P$ имеет корень
+	
+\end{theorem}
+
+
+\begin{proof}\thmslashn
+	
+	От противного. Пусть $P(z) \not = 0 \;\; \forall z \in \CC$
+	
+	Тогда $f(z) = \frac{1}{P(z)} \in H(\CC)$
+	
+	Докажем, что $|f(z)|$ -- ограничен
+	
+	$P(z) = z^n + a_{n-1}z^{n-1} + a_{n-2}z^{n-2} + \ldots + a_0$
+	
+	Пусть $|z| \geqslant R = 1 + |a_{n-1}| + |a_{n-2}| + \ldots + |a_0|$	
+	
+	Оценим теперь многочлен
+	
+	$|P(z)| \geqslant |z|^n - |a_{n-1}z^{n-1}| - |a_{n-2}z^{n-2}| - \ldots - |a_0| \geqslant$
+	
+	
+	$|z|^n - |a_{n-1}||z^{n-1}| - |a_{n-2}z^{n-1}| - \ldots - |a_0||z^{n-1}| = $
+	
+	
+	$|z|^n - |z^{n-1}|(R-1) = |z|^{n-1} (|z| - R + 1) \geqslant R^{n-1} \geqslant 1 $
+	
+	Вне круга $|z| \leqslant R \quad |P(z)| \geqslant 1$
+	
+	В круге $|z| \geqslant R \quad |P(z)|$ непрерывно $\Rightarrow$ достигается минимум 
+	
+	$\Rightarrow |P(z)| \geqslant |P(z_0)| > 0 \Rightarrow |P(z)| \geqslant m = \min(1, |P(z_0)|)$
+	
+	$\Rightarrow |f(z)| \leqslant 1/m \Rightarrow f = $ const по теорему Лиувилля $\Rightarrow P =$ const
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	Если $\deg P = n$, то $P(z) = c(z - z_1)(z-z_2)\ldots(z-z_n)$
+	
+\end{consequence}
+
+\begin{proof}
+	Индукция
+\end{proof}
