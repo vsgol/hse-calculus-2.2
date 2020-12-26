@@ -1,1 +1,97 @@
-\Subsection{Билет 75: NAME}
+\Subsection{Билет 75: Теорема единственности голоморфной функции (с производными). Следствие}
+
+\begin{lemma}\thmslashn
+	
+	$\Omega$ -- область в метрическом пространстве $E \subset \Omega \;\; E \not = \emptyset$
+	
+	$E$ открыто в $\Omega$ и $E$ замкнуто в $\Omega$
+	
+	Тогда $E = \Omega$
+	
+\end{lemma}
+
+\begin{proof}\thmslashn
+
+	Пусть $\Omega \setminus E \not= \emptyset$
+	
+	Возьмем $a \in E, b\in \Omega \setminus E$ и соединим из кривой $\gamma:[\alpha, \beta] \to \Omega \quad \gamma(\alpha) = a, \gamma(\beta) = b$
+	
+	Рассмотрим $\gamma^{-1}(E) \subset [\alpha, \beta]$	открытое множество (прообраз открытого)
+	
+	$\gamma^{-1}(\Omega \setminus E) \subset [\alpha, \beta] $ открытое множество
+	
+	$[\alpha, \beta] \setminus \gamma^{-1}(E) = \gamma^{-1}(\Omega \setminus E) \Rightarrow \gamma^{-1}(E)$ замкнуто в $[\alpha, \beta]$
+	
+	Рассмотрим $s:= \sup \gamma^{-1}(E) \quad s \in \gamma^{-1}(E)$ т.к. $\gamma^{-1}(E)$ -- замкнуто
+	
+	$\Rightarrow s < \beta\qquad$ но $\gamma^{-1}(E)$ открыто $\Rightarrow$ $\exists \delta > 0$, т.ч. $(s-\delta, s+ \delta) \subset \gamma^{-1}(E)$
+	
+	Это противоречит тому, что $s = \sup$
+	
+\end{proof}
+
+\begin{theorem}[единственности]\thmslashn
+	
+	$f\in H(\Omega) \;\;z_0 \in \Omega$
+	
+	Следующие условия равносильны 
+	
+	\begin{enumerate}[1)]
+		\item 
+		$f^{(n)}(z_0) = 0 \;\; \forall n >\geqslant 0$
+		\item
+		$f\equiv 0 $ в окрестности точки $z_0$
+		\item
+		$f \equiv 0$ в $\Omega$
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item[1)$\Rightarrow$2)] 
+		$f\in H(\Omega) \;\; z_0 + r\mathbb{D} \subset \Omega \Rightarrow f$ раскладывается в ряд тейлора в круге $z_0 + r\mathbb{D} \Rightarrow$
+		
+		$f(z) = \sum\limits_{n= 0}^{\infty} \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n = 0$ при $|z-z_0| < r$
+		\item[2)$\Rightarrow$1)]
+		Очевидно
+		\item[3)$\Rightarrow$1)]
+		Очевидно
+		\item[2)$\Rightarrow$3)]
+		$E = \{z \in \Omega: \text{ существует окр-ть точки }z\text{, т.ч. } f\equiv 0\text{ в этой окр-ти} \}$
+		
+		$z_0 \in E \Rightarrow e \not = \emptyset$
+		
+		$E$ -- открытое
+		
+		Пусть $z_n \in E$ и $z_n \to z_* \in \Omega$
+		
+		Надо доказать, что $z_* \in E$
+		
+		$f^{(k)}(z_n) = 0\;\; \forall k, n \;\; f^{(k)}(z_n) = \to f^{(k)}(z_*) \Rightarrow$
+		
+		$f^{(k)}(z_*) = 0 \Rightarrow z_* \in E$, тк 1)$\Rightarrow$2)
+		
+		$\Rightarrow E$ -- замкнуто. 
+		
+		Следовательно по лемме $E = \Omega \Rightarrow f\equiv 0$ в $\Omega$
+		
+	\end{enumerate}
+		
+\end{proof}
+
+\begin{consequence}\thmslashn
+
+	\begin{enumerate}
+		\item 
+		$f, g \in H(\Omega)$ и $f = g$ в окрестности точки $z_0 \Rightarrow f= g$ в $\Omega$
+		\item
+		$f, g \in H(\Omega)$ и $f^{(n)}(z_0) = g^{(n)}(z_0)\;\; \forall n \Rightarrow f = g$ в $\Omega$ 
+	\end{enumerate}
+	
+\end{consequence}
+
+\begin{proof}
+	Подставим в теорему $f - g$
+\end{proof}
