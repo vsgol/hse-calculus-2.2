@@ -1,1 +1,81 @@
-\Subsection{Билет 77: NAME}
+\Subsection{Билет 77: Кратность нуля. Множество нулей голоморфной функции. Теорема единственности.}
+
+\begin{definition}\thmslashn
+
+	$f\in H(\Omega) \;\; z_0 \in \Omega$, если $f(z_0) = 0$, то $z_0$ -- ноль функции $f$
+
+\end{definition}
+
+\begin{theorem}\thmslashn
+	
+	$f\in H(\Omega),\;\; f\not\equiv0, \;\; z_0 \in \Omega,\;\;f(z_0) = 0$
+	
+	Тогда существует $m \in \N, \;\; g\in H(\Omega)$, т.ч. $g(z_0)\not = 0$ и
+	
+	$f(z) = (z-z_0)^mg(z)$ 
+	
+	В частности $f(z)$ не обращается в ноль в некоторой проколотой области $z_0$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Разложим функцию в ряд
+	
+	$f(z) = \sum\limits_{n=0}^k \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n = (z-z_0)^m \sum\limits_{n=0}^k \frac{f^{(n+m)}(z_0)}{(n+m)!}(z - z_0)^n$
+	
+	$m:= \min\{\kappa \in \N: f^{(\kappa)}(z_0) \not = 0 \} \geqslant 1$
+	
+	Если $z \not = z_0$ $g(z) := \frac{f(z)}{(z-z_0)^m}$ в окрестности точки $z_0 \;\;\; g(z) = \sum\limits_{n=0}^k \frac{f^{(n+m)}(z_0)}{(n+m)!}(z - z_0)^n$
+	
+\end{proof}
+
+\begin{definition}\thmslashn
+	
+	$m$ из теоремы -- кратность нуля
+	
+\end{definition}
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		$f, g \in H(\Omega)$ и $fg\equiv 0 \Rightarrow f\equiv 0$ или $g\equiv 0$
+
+		\begin{proof}\thmslashn
+			
+			Пусть $g(z_0) \not = 0  \Rightarrow f(z_0) = 0 \Rightarrow$ если $f \not\equiv 0$, то $f\not=0$ в некоторой проколотой окрестности точки $z_0 \Rightarrow fg \not= 0$ в проколотой окрестности точки $z_0$
+		\end{proof}
+
+		\item
+		Множество нулей голоморфной функции состоит из изоморфных точек. Т.е. у каждого нуля есть такая окрестность, в которой нет других нулей
+	\end{enumerate}
+
+\end{consequence}
+
+\begin{theorem}\thmslashn
+	
+	$f, g \in H(\Omega)$
+	
+	Если множество $\{ z \in \Omega: f(z) = g(z)\}$ имеет предельную точку в $\Omega$, то $f\equiv g$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Пусть $z_n \to z_0 \in \Omega$ и $f(z_n) = g(z_n) \Rightarrow f(z_0) = g(z_0)$ по непрерывности и $h(z) = f(z) - g(z)$ имеет нули в точках $z_0, z_n \; \forall n \Rightarrow$ у точки $z_0$ нет окрестности, в которой нет других нулей $\Rightarrow h\equiv 0$ 
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$\sin^2z + \cos^2 z = 1$
+	
+	$\sin(2z) = 2\sin z \cos z$
+	
+	$e^{iz} = \cos z + i \sin z$
+	
+	Они совпадают на вещественной прямой $\Rightarrow$ они верны на $\CC$
+	
+	Аналогичное можно провернуть и для гаммы функции, которую можно продолжить до случая с $\Re p > 0$
+	
+\end{consequence}

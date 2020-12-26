@@ -1,1 +1,81 @@
-\Subsection{Билет 76: NAME}
+\Subsection{Билет 76: Теорема о среднем. Принцип максимума. Следствие.}
+
+\begin{theorem}[о среднем]\thmslashn
+	
+	$f \in H(\Omega) \;\; a\in \Omega$
+	
+	Тогда $f(a) = \frac{1}{2\pi}\int\limits_0^{2\pi} f(a + re^{it})\,dt$, если $a + r\mathbb{D} \subset \Omega$
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	По интегральной формуле Коши
+	
+	$f(a) = \frac{1}{2\pi i}\int\frac{f(z)}{z-a}\,dz = \frac{1}{2\pi i}\int\limits_{|z-a| =r} \frac{f(a +re^{it})}{re^{it}} re^{it} i\,dz = \frac{1}{2\pi}\int\limits_0^{2\pi} f(a + re^{it})\,dt$
+	
+	Выполнили замену переменной $z = a + re^{it}$, тогда $dz = rde^{it} = ee^{it} i \,dt$
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$f \in H(\Omega) \;\; a \in \Omega \;\; a + r \mathbb{D} \subset \Omega$
+	
+	Тогда $f(a) = \frac{1}{\pi r^2} \int\limits_{a + \mathbb{D}} f(z)\,dx\,dy$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	Запишем этот интеграл в полярных координатах 
+	
+	$\frac{1}{\pi r^2} \int\limits_{a + \mathbb{D}} f(z)\,dx\,dy = \frac{1}{\pi r^2} \int\limits_0^r \int\limits_0^{2\pi} f(a + \rho e^{it}) \rho \,dt\,d\rho = \frac{1}{\pi r^2} \int\limits_0^r 2\pi f(a) \rho \,d\rho =  f(a)$
+	
+\end{proof}
+
+\begin{theorem}[Принцип максимума]\thmslashn
+	
+	$f \in H(\Omega) \;\; a\in \Omega$
+	
+	Если $|f(a)| \geqslant |f(z)|$ для всех $z$ из некоторой окрестности $a$, то $f =$ const
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$M:= |f(a)|$ Домножим $f$ на $e^{i\phi}$ так, что $f(a) = M > 0$
+	
+	$M = f(a) = \frac{1}{2\pi}\int\limits_0^{2\pi} f(a + re^{it})\,dt$ для достаточно малых $r$
+	
+	$M = f(a) = \frac{1}{2\pi}\abs{\int\limits_0^{2\pi} f(a + re^{it})\,dt} \leqslant \frac{1}{2\pi}\int\limits_0^{2\pi} \abs{f(a + re^{it})}\,dt \leqslant M$ 
+	
+	Последнее неравенство верно, тк $|f(a + re^{it})| \leqslant |f(a)|$
+	
+	Везде стоят знаки равно $\Rightarrow |f(a + re^{it})| = M$ при достаточно малых $r$
+	
+	Допишем теперь везде вещественную часть 
+	
+	$M = f(a) = \frac{1}{2\pi}\int\limits_0^{2\pi} \Re f(a + re^{it})\,dt \leqslant M$
+	
+	Опять равенство $\Rightarrow \Re f(a+re^{it}) = M \Rightarrow \Im f(a+re^{it}) = 0$
+	
+	$\Rightarrow f(a+re^{it}) = M$ при достаточно малых $r \Rightarrow f(z) \equiv M$ в окрестности точки $a \Rightarrow$ по теореме о единственности $f(z) \equiv M$ в $\Omega$
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	Пусть $\Omega$ -- ограниченная область $f\in C(\Cl \Omega)$ и $f \in H(\Omega)$
+	
+	Тогда $|f|$ достигается максимума на границе $\Omega$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	$|f|$ непрерывна на $\Cl \Omega$ -- компакт $\Rightarrow$ в какой-то точке $a \in \Cl \Omega$ достигается максимум $|f|$
+	
+	Пусть $a \in \Omega \Rightarrow f \equiv$ const, по принципу максимума $\Rightarrow$ на границе будет то же значение. 
+	
+\end{proof}
