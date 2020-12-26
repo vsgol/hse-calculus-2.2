@@ -50,7 +50,9 @@
 	
 	Возьмем $(a, u)$. В окрестности $\gamma(a, u) = \gamma(b, u)$ существует первообразная $F$, т.ч. $f(t, v) = F(\gamma(t, v))$ при $(t, v)$ близки к $(a, u) \Rightarrow f(a,v) = F(\gamma(a, v))$ при $v$ близких к $u$ 
 	
-	Возьмем $(b, u)$. В окрестности $\gamma(b, u) = \gamma(a, u)$ существует первообразная $\tilde{F}$, т.ч. $f(t, v) = \tilde{F}(\gamma(t, v))$ при $(t, v)$ близки к $(a, u) \Rightarrow f(b,v) = \tilde{F}(\gamma(a, v))$ при $v$ близких к $u$ 
+    Возьмем $(b, u)$. В окрестности $\gamma(b, u) = \gamma(a, u)$ существует первообразная $\tilde{F}$, т.ч. $f(t, v) = \tilde{F}(\gamma(t, v))$ при $(t, v)$ близки к $(b, u) \Rightarrow f(b,v) = \tilde{F}(\gamma(b, v))$ при $v$ близких к $u$ ($\gamma(b, v) = \gamma(a, v) \Rightarrow \tilde{F}(\gamma(b, v)) = \tilde{F}(\gamma{a,v})$)
+
+    Ну получили $f(a, v) = F(\gamma(a, v)), f(b, v) = \tilde{F}(\gamma(b, v)) = \tilde{F}(\gamma(a, v))$, а первообразные на константу отличаются
 	
 	$\Rightarrow f(b, v) - f(a, v)$ постоянна при $v$ близких к $u$
 	
@@ -58,6 +60,10 @@
 
 \begin{theorem}\thmslashn
 	
-	$\Omega$ -- односвязная область, $\omega$ -- локально точная форма $\Rightarrow$ $\omega$ -- точная форма
-	
+	$\Omega$ -- односвязная область, $\omega$ -- локально точная форма $\Rightarrow$ $\omega$ -- точная форма	
 \end{theorem}
+
+
+\begin{proof}\thmslashn
+    Был критерий, что есть первообразная, есть интеграл по любому замкнутому пути равен 0. Если область односвязная, то все пути стягиваемые (по определению), тогда по предыдущей теореме все интегралы по замкнутым путям равны 0. Значит, есть глобальная первообразная.
+\end{proof}
