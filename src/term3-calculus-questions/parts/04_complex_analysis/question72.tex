@@ -1,1 +1,88 @@
 \Subsection{Билет 72: Аналитичность голоморфной функции. Следствия}
+
+\begin{theorem}\thmslashn
+	
+	$f\in H(r \mathbb(D)) \Rightarrow f$ аналитична в $r \mathbb{D}$ 
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	$0 < r_1 < r_2 < r$
+	
+	Запишем интегральную формулу Коши для круга радиуса $r_2$ 
+	
+	$f(z) = \frac{1}{2\pi i} \int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi-z}\,d\xi$
+	
+	$\frac{1}{\xi - z} = \frac{1}{\xi} \cdot \frac{1}{1 - r/\xi} = \frac{1}{\xi} \left( 1 + \frac{r}{\xi} + \frac{r^2}{\xi^2} + \ldots \right)$ это равномерно сходящийся ряд, при $|z| \leqslant r_1$
+	
+	$= \frac{1}{2\pi i} \int\limits_{|\xi| = r_2} f(\xi) \sum\limits_{n = 0}^{\infty} \frac{z^n}{\xi^{n+1}}\,d\xi = \frac{1}{2\pi i}\sum\limits_{n = 0}^{\infty} z^n \int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi^{n+1}} = \sum\limits_{n = 0}^{\infty} a_n z^n$
+	
+	где $a_n =  \frac{1}{2\pi i}\int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi^{n+1}}$
+	
+	$f(z) = \sum\limits_{n = 0}^{\infty} a_n z^n$ такое разложение есть для всех  $z$ и оно не зависит от $r_2$, тк $k$ коэффициент это $\frac{f^{(k)}}{k!} \Rightarrow$ от того, что мы поменяли $r_2$ не может ничего изменится.
+	
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Если $f(z) = \sum\limits_{n = 0}^{\infty} a_n z^n$ сходится в круге $r \mathbb{D}$, то 
+		$a_n = \frac{1}{2\pi i}\int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi^{n+1}}$, где $0 < r_1 < r$
+		
+		\item
+		$f:\Omega \to \CC \;\; f$ -- голоморфна в $\Omega \Leftrightarrow f$ -- аналитична в $\Omega$
+		
+		\begin{proof}\thmslashn
+			
+			\begin{enumerate}
+				\item ["$\Rightarrow$"]
+				$z_0+r\mathbb{D}\subset \Omega \Rightarrow f$ голоморфна в $z_0+r\mathbb{D} \Rightarrow f$ раскладывается в ряд, сходящийся в $z_0+r\mathbb{D}$, по степеням $z - z_0$
+				
+				\item ["$\Leftarrow$"]
+				$f$ -- аналитична в точке $z_0 \Rightarrow f$ дифференцируема в точке $z_0$
+			\end{enumerate}
+		\end{proof} 
+		
+		\item
+		$f\in H(\Omega) \Rightarrow f$ бесконечно дифференцируема в $\Omega$
+		
+		\item
+		$f \in H(\Omega) \Rightarrow f' \in H(\Omega)$
+		
+		\item
+		$f \in H(\Omega) \Rightarrow \Re f$ и $\Im f$ -- гармонические функции
+		
+		\begin{remark}\thmslashn
+			
+			$f:\Omega \to \R$ гармоническая, если 
+			
+			$\frac{\partial^2 f}{\partial x_1^2} + \frac{\partial^2 f}{\partial x_2^2} + \ldots + \frac{\partial^2 f}{\partial x_n^2} \equiv 0$ во всех точках из $\Omega$
+		\end{remark}
+		
+		\begin{proof}\thmslashn
+			
+			Условие Коши-Римана $\frac{\partial \Re f}{\partial x} = \frac{\partial \Im f}{\partial y}$ и $\frac{\partial \Re f}{\partial y} = -\frac{\partial \Im f}{\partial x}$
+			
+			$\frac{\partial^2 \Re f}{\partial x^2} = \frac{\partial}{\partial x} \left(\frac{\partial \Im f}{\partial y} \right) = \frac{\partial^2 \Im f}{\partial x \partial y} = \frac{\partial^2 \Im f}{\partial y \partial x} = -\frac{\partial^2 \Re f}{\partial y^2}$
+			
+		\end{proof}
+	
+	\end{enumerate}
+	
+\end{consequence}
+
+\begin{remark}\thmslashn
+	
+	Если $P$ -- гармоническая функция в $\Omega \subset R^2$, то существует единственная функция с точностью до константы гармоническая функция 
+	
+	$Q:\Omega \to \R$, т.ч. $P + iQ \in H(\Omega)$
+	
+\end{remark}
+
+\begin{exerc}
+	Доказать это 
+\end{exerc}
+

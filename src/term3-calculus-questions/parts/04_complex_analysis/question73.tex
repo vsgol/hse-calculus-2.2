@@ -1,1 +1,105 @@
-\Subsection{Билет 73: NAME}
+\Subsection{Билет 73: Теорема Мореры. Следствие. Вторая версия интегральной формулы Коши. Условия, равносильные голоморфности}
+
+\begin{theorem}[Мореры]\thmslashn
+	
+	$f\in C(\omega)$ и $f(z)dz$ локально точная в $\Omega$
+	
+	Тогда $f \in H(\Omega)$ 
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Возьмем $a\in \Omega$
+	
+	У нее несть окрестность, в которой $f(z)dz$ имеет первообразную, т.е. существует $F$, т.ч. существует $F$, т.ч. $F' = f$
+	
+	Тогда $F$ голоморфна в этой окрестности $\Rightarrow f = F'$ -- голоморфна в этой окрестности $\Rightarrow f$ голоморфна в точке $a \Rightarrow f \in H(\Omega)$    
+	
+\end{proof}
+
+\begin{consequence}\thmslashn
+	
+	$f \in C(\Omega)$, $\Delta$ -- прямая параллельная оси координнат 
+	
+	Если $f \in H(\Omega /\Delta)$, то $f \in H(\Omega)$
+	
+\end{consequence}
+
+\begin{proof}\thmslashn
+	
+	По следствию теоремы Коши $f\in C(\Omega) \& f\in H(\Omega /\Delta) \Rightarrow f(z)dz$ локально точна в $\Omega \Rightarrow f \in H(\Omega)$ по теореме Морера
+		
+\end{proof}
+
+\begin{theorem}[интегральная формула Коши]
+
+	$f\in H(\Omega), \;\; K\subset \Omega\;\; K$ -- компакт с кусочно-гладкой границей
+	
+	Тогда $\int\limits_{\partial K} f(z)\,dz = 0$ и если $a \in \Int K$, то $\int\limits_{\partial K} \frac{f(z)}{z-a}\,dz = 2\pi i f(a)$
+
+\end{theorem}
+
+\begin{proof}\thmslashn
+		
+	\begin{enumerate}
+		\item 
+		$\int\limits_{\partial K} f(z)\,dx + f(z)dy = \int\limits_{K}\left( \frac{\partial if(z)}{\partial y} - \frac{\partial f(z)}{\partial x} \right)\,dx\,dy = 0$
+		
+		Первый переход это формула Грина, а второй верен, тк это условие Коши-Римана 
+		
+		\item
+		Выберем кружочек вокруг точки $a$ так, чтобы он с границей полностью лежал в $\Int K$
+		
+		$\tilde{K} = K \setminus(a + r\mathbb{D})$ -- компакт
+		
+		$0 = \int\limits_{\partial \tilde{K}} \frac{f(z)}{z-a}\,dz = \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz + \int\limits_{\text{окр}} \frac{f(z)}{z-a}\,dz =  \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz - \int\limits_{|z-a| = r} \frac{f(z)}{z-a}\,d = \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz - 2\pi i f(a)$
+		
+		Во втором переходе у нас изменился знак перед вторым интегралом, тк мы изменили направление обхода, а последний переход это интегральная формула Коши.
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{exerc}
+	$f\in C(\Cl \mathbb{D})$ и $f \in H(\mathbb{D})$, $a \in \mathbb{D}$
+	
+	Доказать, что $\int\limits_{\partial K} \frac{f(z)}{z-a}\,dz = 2\pi i f(a)$
+\end{exerc}
+
+\begin{theorem}\thmslashn
+	
+	$f:\Omega \to \CC$ 
+	
+	Следующие условия равносильны
+	
+	\begin{enumerate}[1)]
+		\item 
+		$f\in H(\Omega)$
+		\item
+		$f$ аналитична в $\Omega$
+		\item
+		$f$ локально имеет первообразную
+		\item
+		$f(z)dz$ локально точная форма
+		\item
+		$f(z)dz$ замкнутая форма с непрерывными частными производными 
+		\item
+		$f\in C(\Omega)$ и интеграл $\int f(z)\,dz$ по любому достаточно малому прямоугольнику, со сторонами, параллельными осям координат
+		 
+	\end{enumerate}
+	
+\end{theorem}
+
+\begin{proof}\thmslashn
+	\begin{enumerate}
+		\item[1)$\Leftrightarrow$2)]
+		Это следствие из теоремы 4.6
+		\item[1)$\Rightarrow$4)]
+		Это теорема Коши
+		\item[4)$\Rightarrow$1)]
+		Это теорема Морера
+		\item[3)$\Leftrightarrow$4)]
+		
+	\end{enumerate}
+	
+\end{proof}
