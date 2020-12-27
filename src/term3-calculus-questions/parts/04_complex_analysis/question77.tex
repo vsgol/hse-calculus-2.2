@@ -24,9 +24,15 @@
 	
 	$f(z) = \sum\limits_{n=0}^k \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n = (z-z_0)^m \sum\limits_{n=0}^k \frac{f^{(n+m)}(z_0)}{(n+m)!}(z - z_0)^n$
 	
-	$m:= \min\{\kappa \in \N: f^{(\kappa)}(z_0) \not = 0 \} \geqslant 1$
+	$m:= \min\{\kappa \in \N: f^{(\kappa)}(z_0) \not = 0 \} \geqslant 1$, такая есть тк иначе по теореме единственности $f \equiv 0$
 	
-	Если $z \not = z_0$ $g(z) := \frac{f(z)}{(z-z_0)^m}$ в окрестности точки $z_0 \;\;\; g(z) = \sum\limits_{n=0}^k \frac{f^{(n+m)}(z_0)}{(n+m)!}(z - z_0)^n$
+	Если $z \not = z_0$ $g(z) := \frac{f(z)}{(z-z_0)^m}$ 
+
+    А в окрестности точки $z_0 \;\;\; g(z) = \sum\limits_{n=0}^k \frac{f^{(n+m)}(z_0)}{(n+m)!}(z - z_0)^n$
+
+    Голоморфна не в $z_0$ тк $f(z)$ голоморфна и $(z-z0)^m \neq 0$ тоже, а в $z_0$ так как аналитична и потому голоморфна
+
+    В окрестности определения совпадают из формулы выше (разложение в ряд)
 	
 \end{proof}
 
@@ -44,7 +50,7 @@
 
 		\begin{proof}\thmslashn
 			
-			Пусть $g(z_0) \not = 0  \Rightarrow f(z_0) = 0 \Rightarrow$ если $f \not\equiv 0$, то $f\not=0$ в некоторой проколотой окрестности точки $z_0 \Rightarrow fg \not= 0$ в проколотой окрестности точки $z_0$
+            Пусть $g(z_0) \not = 0  \Rightarrow f(z_0) = 0 \Rightarrow$ если $f \not\equiv 0$, то $f\not=0$ в некоторой проколотой окрестности точки $z_0 \Rightarrow fg \not= 0$ в проколотой окрестности точки $z_0$ (благодаря непрерывности у $g$ тоже есть окрестность, где она не 0)
 		\end{proof}
 
 		\item
@@ -53,7 +59,7 @@
 
 \end{consequence}
 
-\begin{theorem}\thmslashn
+\begin{theorem}[вторая единственности]\thmslashn
 	
 	$f, g \in H(\Omega)$
 	

@@ -79,9 +79,11 @@
 	
 	$\int\limits_\gamma \frac{f(z)}{z-a}\,dz = 
 	\begin{cases}
-	0, & a \text{вне круга}\\
+        0, & a \text{ вне круга, так как } Ind(\gamma, a) = 0 \text{, сделали 0 оборотов}\\
 	2\pi i f(a), & \text{внутри круга}
 	\end{cases}$
 	
-	В частности $f(a) = \int\limits_{|z-a| = r} \frac{f(z)}{z-a}\,dz$
+    В частности $f(a) = \frac{1}{2\pi i} \int\limits_{|z-a| = r} \frac{f(z)}{z-a}\,dz$
+
+    (кажется, здесь на лекции была опечатка, и не было коэффициента $\frac{1}{2\pi i}$)
 \end{example}

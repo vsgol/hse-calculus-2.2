@@ -14,7 +14,7 @@
 	
 	$f(z) = \frac{1}{2\pi i} \int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi-z}\,d\xi$
 	
-	$\frac{1}{\xi - z} = \frac{1}{\xi} \cdot \frac{1}{1 - r/\xi} = \frac{1}{\xi} \left( 1 + \frac{r}{\xi} + \frac{r^2}{\xi^2} + \ldots \right)$ это равномерно сходящийся ряд, при $|z| \leqslant r_1$
+	$\frac{1}{\xi - z} = \frac{1}{\xi} \cdot \frac{1}{1 - z/\xi} = \frac{1}{\xi} \left( 1 + \frac{z}{\xi} + \frac{z^2}{\xi^2} + \ldots \right)$ это равномерно сходящийся ряд, при $|z| \leqslant r_1$
 	
 	$= \frac{1}{2\pi i} \int\limits_{|\xi| = r_2} f(\xi) \sum\limits_{n = 0}^{\infty} \frac{z^n}{\xi^{n+1}}\,d\xi = \frac{1}{2\pi i}\sum\limits_{n = 0}^{\infty} z^n \int\limits_{|\xi| = r_2} \frac{f(\xi)}{\xi^{n+1}} = \sum\limits_{n = 0}^{\infty} a_n z^n$
 	

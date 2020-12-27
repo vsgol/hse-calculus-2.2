@@ -24,7 +24,9 @@
 	
 	Рассмотрим $s:= \sup \gamma^{-1}(E) \quad s \in \gamma^{-1}(E)$ т.к. $\gamma^{-1}(E)$ -- замкнуто
 	
-	$\Rightarrow s < \beta\qquad$ но $\gamma^{-1}(E)$ открыто $\Rightarrow$ $\exists \delta > 0$, т.ч. $(s-\delta, s+ \delta) \subset \gamma^{-1}(E)$
+    $\Rightarrow s < \beta\qquad$ (ведь $\beta \in \gamma^{-1}(\Omega \setminus E)$)
+
+    Но $\gamma^{-1}(E)$ открыто $\Rightarrow$ $\exists \delta > 0$, т.ч. $(s-\delta, s+ \delta) \subset \gamma^{-1}(E)$
 	
 	Это противоречит тому, что $s = \sup$
 	
@@ -38,7 +40,7 @@
 	
 	\begin{enumerate}[1)]
 		\item 
-		$f^{(n)}(z_0) = 0 \;\; \forall n >\geqslant 0$
+		$f^{(n)}(z_0) = 0 \;\; \forall n \geqslant 0$
 		\item
 		$f\equiv 0 $ в окрестности точки $z_0$
 		\item
@@ -61,19 +63,21 @@
 		\item[2)$\Rightarrow$3)]
 		$E = \{z \in \Omega: \text{ существует окр-ть точки }z\text{, т.ч. } f\equiv 0\text{ в этой окр-ти} \}$
 		
-		$z_0 \in E \Rightarrow e \not = \emptyset$
+		$z_0 \in E \Rightarrow E \not = \emptyset$
 		
-		$E$ -- открытое
+		$E$ -- открытое, так как у каждой точки есть окрестность, где 0, так что точки из этой окрестности для неё и будут шариком
 		
 		Пусть $z_n \in E$ и $z_n \to z_* \in \Omega$
 		
 		Надо доказать, что $z_* \in E$
 		
-		$f^{(k)}(z_n) = 0\;\; \forall k, n \;\; f^{(k)}(z_n) = \to f^{(k)}(z_*) \Rightarrow$
+        $f^{(k)}(z_n) = 0\;\; \forall k, n \;\; f^{(k)}(z_n) \to f^{(k)}(z_*) \Rightarrow$
 		
 		$f^{(k)}(z_*) = 0 \Rightarrow z_* \in E$, тк 1)$\Rightarrow$2)
 		
 		$\Rightarrow E$ -- замкнуто. 
+
+        (предельный переход в производных возможен, так как производные непрерывны из-за бесконечной дифференцируемости голоморфной функции)
 		
 		Следовательно по лемме $E = \Omega \Rightarrow f\equiv 0$ в $\Omega$
 		
