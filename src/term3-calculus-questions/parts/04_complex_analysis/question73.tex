@@ -44,9 +44,11 @@
 		
 	\begin{enumerate}
 		\item 
-		$\int\limits_{\partial K} f(z)\,dx + f(z)dy = \int\limits_{K}\left( \frac{\partial if(z)}{\partial y} - \frac{\partial f(z)}{\partial x} \right)\,dx\,dy = 0$
+		$\int\limits_{\partial K} f(z)\,dx + f(z)dy = \int\limits_{K}\left( \frac{\partial if(z)}{\partial x} - \frac{\partial f(z)}{\partial y} \right)\,dx\,dy = 0$
 		
 		Первый переход это формула Грина, а второй верен, тк это условие Коши-Римана 
+
+        (на лекции была опечатка, были неправильные $\partial$ в знаменателях)
 		
 		\item
 		Выберем кружочек вокруг точки $a$ так, чтобы он с границей полностью лежал в $\Int K$
@@ -56,6 +58,8 @@
 		$0 = \int\limits_{\partial \tilde{K}} \frac{f(z)}{z-a}\,dz = \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz + \int\limits_{\text{окр}} \frac{f(z)}{z-a}\,dz =  \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz - \int\limits_{|z-a| = r} \frac{f(z)}{z-a}\,d = \int\limits_{\partial K} \frac{f(z)}{z-a}\,dz - 2\pi i f(a)$
 		
 		Во втором переходе у нас изменился знак перед вторым интегралом, тк мы изменили направление обхода, а последний переход это интегральная формула Коши.
+
+        Если ничего непонятно, welcome to \url{https://youtu.be/RiEjv7OpBCY?t=2336}
 	\end{enumerate}
 	
 \end{proof}
